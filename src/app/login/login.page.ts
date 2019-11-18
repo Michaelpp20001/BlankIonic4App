@@ -10,14 +10,19 @@ import { Router } from '@angular/router';
 export class LoginPage implements OnInit {
 
   constructor(private authGuard: AuthGuardService, private router: Router) { }
+  mustLogIn: boolean
 
   ngOnInit() {
   }
 
   goToHome() {
-    this.authGuard.authInfo.authenticated = true;
-    console.log(this.authGuard.authInfo)
-    this.router.navigate(['/home']);
+    if(this.authGuard.authInfo.name && this.authGuard.authInfo.password) {
+      this.authGuard.authInfo.authenticated = true;
+      console.log(this.authGuard.authInfo)
+      this.router.navigate(['/home']);
+    } else {
+      this.mustLogIn = true;
+    }
   }
 
 }
