@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <p>You must be logged in to view that page!</p>
+    <ion-item>
+        <ion-label position="floating">Enter Name</ion-label>
+        <ion-input [(ngModel)]="this.authGuard.authInfo.name" name="name"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label position="floating">Enter Password</ion-label>
+          <ion-input [(ngModel)]="this.authGuard.authInfo.password" name="password"></ion-input>
+        </ion-item>
+    <ion-button (click)="goToHome()">Login</ion-button>
+</ion-content>
