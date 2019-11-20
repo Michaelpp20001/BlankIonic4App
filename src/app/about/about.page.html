@@ -1,12 +1,15 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>about</ion-title>
+      <ion-buttons slot="start">
+          <ion-menu-button autoHide=false menuId="first"></ion-menu-button>
+      </ion-buttons>
+    <ion-title>About</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 <div class="ion-padding">
-  This is just an example of a simple about page and routing
+  <p>This is just an example of a simple about page and routing</p>
 </div>
 <ion-button [routerLink]="['/home']" routerDirecrion="backwards">Home</ion-button>
 </ion-content>

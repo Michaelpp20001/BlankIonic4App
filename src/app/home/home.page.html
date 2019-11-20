@@ -1,14 +1,18 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      My Ionic Blank learing App
-    </ion-title>
+      <ion-buttons slot="start">
+          <ion-menu-button autoHide=false menuId="first"></ion-menu-button>
+      </ion-buttons>
+      <ion-title>
+        My Ionic Blank learning App
+      </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div class="ion-padding">
-    This is an blank app, learning router basics with Ionic 4
+    <p *ngIf="this.authGuard.userInfo">Welcome, {{this.authGuard.userInfo.name}}!</p>
+    <p>This is a blank app, learning router basics with Ionic 4</p>
   </div>
   <ion-button routerLink='/about' (click)="myInfo()" routerDirection="forward">about</ion-button>
 </ion-content>

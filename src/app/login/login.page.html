@@ -1,19 +1,24 @@
 <ion-header>
   <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-menu-button autoHide=false menuId="first"></ion-menu-button>
+      </ion-buttons>
     <ion-title>login</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <p>You must be logged in to view that page!</p>
+  <div class="ion-padding">
+    <p>Log In to my Blank App</p>
+  </div>
     <ion-item>
         <ion-label position="floating">Enter Name</ion-label>
         <ion-input [(ngModel)]="this.authGuard.authInfo.name" name="name"></ion-input>
       </ion-item>
       <ion-item>
           <ion-label position="floating">Enter Password</ion-label>
-          <ion-input [(ngModel)]="this.authGuard.authInfo.password" name="password"></ion-input>
+          <ion-input [(ngModel)]="this.authGuard.authInfo.password" type="password"></ion-input>
         </ion-item>
-    <ion-button (click)="goToHome()">Login</ion-button>
+    <ion-button *ngIf="this.authGuard.authInfo.authenticated === false"(click)="login()">Login</ion-button>
     <p *ngIf="mustLogIn === true">Please log in to proceed</p>
 </ion-content>

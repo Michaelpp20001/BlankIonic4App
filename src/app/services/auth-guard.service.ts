@@ -8,11 +8,13 @@ export class AuthGuardService implements CanActivate {
 
   constructor(private router: Router) { }
 
-  authInfo: any = {
+  authInfo = {
     name: "",
     password: "",
     authenticated: false,
   }
+
+  userInfo: any
 
   canActivate(route: ActivatedRouteSnapshot): boolean {
     console.log(route);

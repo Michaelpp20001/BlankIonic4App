@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthGuardService } from '../services/auth-guard.service';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,7 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(private authGuard: AuthGuardService) {}
 
   myInfo() {
     console.log("Michael")
