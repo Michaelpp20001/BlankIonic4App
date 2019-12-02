@@ -1,0 +1,11 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Inputs</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <P>Here is an example of passing data from parent component to a child component using @input</P>
+  <app-input [examples]="myExample"></app-input>
+  <ion-button [routerLink]="['/about']" routerDirecrion="backwards">Back to About</ion-button>
+</ion-content>

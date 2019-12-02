@@ -10,6 +10,24 @@
 <ion-content>
 <div class="ion-padding">
   <p>This is just an example of a simple about page and routing</p>
+  <p>Below is an example of Ionic 4 responsive grid</p>
 </div>
+<ion-grid class="basic-grid" padding>
+  <ion-row class="basic-row" padding>
+    <ion-col class="basic-column" size-xs="12" size-sm="6" size-m="4" size-l="4" size-xl="3" padding>
+      column 1
+    </ion-col>
+    <ion-col class="basic-column2" size-xs="12" size-sm="6" size-m="4" size-l="4" size-xl="3"padding>
+      column 2
+    </ion-col>
+    <ion-col class="basic-column3" size-xs="12" size-sm="6" size-m="4" size-l="4" size-xl="3"padding>
+      column 3
+    </ion-col>
+    <ion-col class="basic-column4" size-xs="12" size-sm="6" size-m="4" size-l="4" size-xl="3"padding>
+      column 4
+    </ion-col>
+  </ion-row>
+</ion-grid>
 <ion-button [routerLink]="['/home']" routerDirecrion="backwards">Home</ion-button>
+<ion-button [routerLink]="['/inputs']" roterDirection="forwards">Go to Inputs example</ion-button>
 </ion-content>
