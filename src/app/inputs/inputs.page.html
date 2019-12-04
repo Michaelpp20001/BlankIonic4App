@@ -1,11 +1,13 @@
 <ion-header>
   <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-menu-button autoHide=false menuId="first"></ion-menu-button>
+      </ion-buttons>
     <ion-title>Inputs</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <P>Here is an example of passing data from parent component to a child component using @input</P>
-  <app-input [examples]="myExample"></app-input>
+  <app-input [examples]="myExample" [count]="myCount" (change)="countChange($event)"></app-input>
   <ion-button [routerLink]="['/about']" routerDirecrion="backwards">Back to About</ion-button>
 </ion-content>

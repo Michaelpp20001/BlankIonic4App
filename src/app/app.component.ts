@@ -24,6 +24,11 @@ export class AppComponent {
       icon  : "alert"
     },
     {
+      title : "Inputs/Outputs",
+      url   : "/inputs",
+      icon  : "git-compare"
+    },
+    {
       title : "Login",
       url   : "/login",
       icon  : "person"

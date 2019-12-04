@@ -9,7 +9,13 @@ export class InputsPage implements OnInit {
 
   myExample: string = "Hello World"
 
+  myCount: number = 0
+
   constructor() { }
+
+  countChange(event) {
+    
+  }
 
   ngOnInit() {
   }
