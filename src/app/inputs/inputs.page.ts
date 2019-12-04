@@ -14,7 +14,8 @@ export class InputsPage implements OnInit {
   constructor() { }
 
   countChange(event) {
-    
+    console.log(event)
+    this.myCount = event
   }
 
   ngOnInit() {

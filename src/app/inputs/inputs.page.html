@@ -8,6 +8,7 @@
 </ion-header>
 
 <ion-content>
+  <p>Red = part of input child component</p>
   <app-input [examples]="myExample" [count]="myCount" (change)="countChange($event)"></app-input>
   <ion-button [routerLink]="['/about']" routerDirecrion="backwards">Back to About</ion-button>
 </ion-content>
