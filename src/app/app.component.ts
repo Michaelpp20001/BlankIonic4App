@@ -35,7 +35,7 @@ export class AppComponent {
       icon  : "person"
     },
   ]
-  
+
   nav2 =
     [
       {
@@ -55,7 +55,7 @@ export class AppComponent {
       },
       {
         title : "Logout",
-        url   : "/login",
+        url   : "/logout",
         icon  : "person"
       },
     ]
