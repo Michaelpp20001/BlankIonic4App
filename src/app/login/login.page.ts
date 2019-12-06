@@ -16,7 +16,7 @@ export class LoginPage implements OnInit {
   }
 
   login() {
-    if(this.authGuard.authInfo.name && this.authGuard.authInfo.password) {
+    if(this.authGuard.authInfo.firstName && this.authGuard.authInfo.lastName && this.authGuard.authInfo.email && this.authGuard.authInfo.password) {
       this.authGuard.authInfo.authenticated = true;
       this.authGuard.userInfo = this.authGuard.authInfo;
       console.log("UserInfo",this.authGuard.userInfo);

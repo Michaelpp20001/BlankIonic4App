@@ -11,7 +11,7 @@
 
 <ion-content>
   <div class="ion-padding">
-    <p *ngIf="this.authGuard.userInfo">Welcome, {{this.authGuard.userInfo.name}}!</p>
+    <p *ngIf="this.authGuard.userInfo">Welcome, {{this.authGuard.userInfo.firstName}}!</p>
     <p>This is a blank app, learning router basics with Ionic 4</p>
   </div>
   <ion-button routerLink='/about' (click)="myInfo()" routerDirection="forward">about</ion-button>

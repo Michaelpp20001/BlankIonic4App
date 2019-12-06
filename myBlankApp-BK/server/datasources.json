@@ -1,0 +1,17 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "mongo": {
+    "host": "localhost",
+    "port": 27018,
+    "url": "mongodb+srv://mpp2001:Wakethefuckup1@users-xbote.mongodb.net/IonicBlankApp?retryWrites=true&w=majority",
+    "database": "mongodb",
+    "password": "Wakethefuckup1",
+    "name": "mongo",
+    "user": "mpp2001",
+    "useNewUrlParser": true,
+    "connector": "mongodb"
+  }
+}

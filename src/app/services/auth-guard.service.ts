@@ -9,7 +9,9 @@ export class AuthGuardService implements CanActivate {
   constructor(private router: Router) { }
 
   authInfo = {
-    name: "",
+    firstName: "",
+    lastName: "",
+    email: "",
     password: "",
     authenticated: false,
   }
