@@ -15,14 +15,14 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
-  login(userData) {
+  login(loginData) {
     if(this.authGuard.authInfo.email && this.authGuard.authInfo.password) {
       this.authGuard.authInfo.authenticated = true;
-      this.authGuard.login(userData)
-      .subscribe(data => {
-        this.authGuard.userInfo = data;
+      this.authGuard.login(loginData)
+      .subscribe(loginData => {
+        this.authGuard.userInfo = loginData;
         console.log("User Login",this.authGuard.userInfo);
-        this.authGuard.getUserInfo(data)
+        this.authGuard.getUserInfo(loginData)
         .subscribe(userData => {
           this.authGuard.userInfo = userData;
           console.log("User Info", this.authGuard.userInfo);
