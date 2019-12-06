@@ -25,7 +25,7 @@ export class LoginPage implements OnInit {
         this.authGuard.getUserInfo(loginData)
         .subscribe(userData => {
           this.authGuard.userInfo = userData;
-          console.log("User Info", this.authGuard.userInfo);
+          console.log("User Authenticated Info", this.authGuard.userInfo);
         })
         this.router.navigate(['/home']);
       });

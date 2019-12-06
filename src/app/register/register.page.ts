@@ -16,12 +16,12 @@ export class RegisterPage implements OnInit {
   ngOnInit() {
   }
 
-  register(userData) {
+  register(registerData) {
     if(this.authGuard.authInfo.firstName && this.authGuard.authInfo.lastName && this.authGuard.authInfo.email && this.authGuard.authInfo.password) {
       this.authGuard.authInfo.authenticated = true;
-      this.authGuard.register(userData)
-      .subscribe(data => {
-        this.authGuard.userInfo = data;
+      this.authGuard.register(registerData)
+      .subscribe(userData => {
+        this.authGuard.userInfo = userData;
         console.log("User Authenticated Info",this.authGuard.userInfo);
         this.router.navigate(['/home']);
       });
