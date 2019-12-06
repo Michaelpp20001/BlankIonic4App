@@ -4,6 +4,7 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AuthGuardService } from './services/auth-guard.service';
+import { HTTP } from '@ionic-native/http/ngx';
 
 @Component({
   selector: 'app-root',

@@ -5,7 +5,7 @@
   },
   "mongo": {
     "host": "localhost",
-    "port": 27018,
+    "port": 27017,
     "url": "mongodb+srv://mpp2001:Wakethefuckup1@users-xbote.mongodb.net/IonicBlankApp?retryWrites=true&w=majority",
     "database": "mongodb",
     "password": "Wakethefuckup1",

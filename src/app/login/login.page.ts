@@ -15,12 +15,15 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
-  login() {
+  register(userData) {
     if(this.authGuard.authInfo.firstName && this.authGuard.authInfo.lastName && this.authGuard.authInfo.email && this.authGuard.authInfo.password) {
       this.authGuard.authInfo.authenticated = true;
-      this.authGuard.userInfo = this.authGuard.authInfo;
-      console.log("UserInfo",this.authGuard.userInfo);
-      this.router.navigate(['/home']);
+      this.authGuard.register(userData)
+      .subscribe(data => {
+        this.authGuard.userInfo = data;
+        console.log("User Authenticated Info",this.authGuard.userInfo);
+        this.router.navigate(['/home']);
+      });
     } else {
       this.mustLogIn = true;
     }
