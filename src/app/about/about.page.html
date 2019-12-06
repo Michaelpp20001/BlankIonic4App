@@ -28,6 +28,15 @@
     </ion-col>
   </ion-row>
 </ion-grid>
-<ion-button [routerLink]="['/home']" routerDirecrion="backwards">Home</ion-button>
-<ion-button [routerLink]="['/inputs']" routerDirection="forwards">Go to Inputs/Outputs example</ion-button>
+<ion-grid>
+  <ion-row>
+    <ion-col class="ion-padding" size="6">
+        <a [routerLink]="['/home']" routerDirecrion="backwards">Go back home</a><br>
+    </ion-col>
+    <ion-col class="ion-padding" size="6">
+        <a [routerLink]="['/inputs']" routerDirection="forwards">Go to Inputs/Outputs example</a>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
 </ion-content>

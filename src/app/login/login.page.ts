@@ -21,7 +21,12 @@ export class LoginPage implements OnInit {
       this.authGuard.login(userData)
       .subscribe(data => {
         this.authGuard.userInfo = data;
-        console.log("User Authenticated Info",this.authGuard.userInfo);
+        console.log("User Login",this.authGuard.userInfo);
+        this.authGuard.getUserInfo(data)
+        .subscribe(userData => {
+          this.authGuard.userInfo = userData;
+          console.log("User Info", this.authGuard.userInfo);
+        })
         this.router.navigate(['/home']);
       });
     } else {
@@ -38,7 +43,7 @@ export class LoginPage implements OnInit {
         console.log(data.status);
         console.log(data.data); // data received by server
         console.log(data.headers);
-        
+
         //this.authGuard.userInfo = data;
         //console.log("User Authenticated Info",this.authGuard.userInfo);
         //this.router.navigate(['/home']);

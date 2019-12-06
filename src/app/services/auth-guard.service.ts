@@ -45,6 +45,10 @@ export class AuthGuardService implements CanActivate {
     return this.ngHttp.post(`${this.advancedBaseUrl}/login`, userData)
   }
 
+  getUserInfo(userInfo) {
+    return this.ngHttp.get(`${this.advancedBaseUrl}/${userInfo.userId}?access_token=${userInfo.token}`)
+  }
+
   //This request is for using the advanced http cordova plugin
   loginAdvanced(userData) {
     return this.HTTP.post(`${this.advancedBaseUrl}/login`, {data: userData}, {authorization: "login: token"})

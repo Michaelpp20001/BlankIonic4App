@@ -21,8 +21,9 @@
         </ion-item>
     <ion-button (click)="login(this.authGuard.authInfo)">Login</ion-button>
     <ion-button (click)="loginHTTP(this.authGuard.authInfo)">Advanced HTTP Login</ion-button>
-    <div>Don't have an account?
-      <ion-button routerLink='/register' routerDirection="forward">Make an account</ion-button>
-    </div>
+    <p>
+      Don't have an account?
+      <a routerLink='/register' routerDirection="forward">Make an account</a>
+    </p>
     <p *ngIf="mustLogIn === true">Please log in to proceed, p.s. because I have a guarded route!</p>
 </ion-content>
