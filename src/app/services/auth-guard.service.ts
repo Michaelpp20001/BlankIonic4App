@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AuthGuardService implements CanActivate {
 
-  constructor(private router: Router, private http: HTTP, private ngHttp: HttpClient) { }
+  constructor(private router: Router, private HTTP: HTTP, private ngHttp: HttpClient) { }
 
   authInfo = {
     firstName: "",
@@ -20,7 +20,11 @@ export class AuthGuardService implements CanActivate {
 
   userInfo: any
 
+  //this url works for browser requests
   baseUrl: string = "http://localhost:3000/api/appUsers"
+
+  //this url works for dev app requests
+  advancedBaseUrl: string = "http://192.168.1.179:3000/api/appUsers"
 
   canActivate(route: ActivatedRouteSnapshot): boolean {
     console.log(route);
@@ -34,10 +38,15 @@ export class AuthGuardService implements CanActivate {
   }
 
   register(userData) {
-    return this.ngHttp.post(`${this.baseUrl}`, userData)
+    return this.ngHttp.post(`${this.advancedBaseUrl}`, userData)
   }
 
   login(userData) {
-    return this.ngHttp.post(`${this.baseUrl}/login`, userData)
+    return this.ngHttp.post(`${this.advancedBaseUrl}/login`, userData)
+  }
+
+  //This request is for using the advanced http cordova plugin
+  loginAdvanced(userData) {
+    return this.HTTP.post(`${this.advancedBaseUrl}/login`, {data: userData}, {authorization: "login: token"})
   }
 }

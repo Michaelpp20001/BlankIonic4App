@@ -70,7 +70,8 @@ export class AppComponent {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private AuthService: AuthGuardService
+    private AuthService: AuthGuardService,
+    private HTTP: HTTP,
   ) {
     this.initializeApp();
   }
@@ -79,6 +80,7 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      this.HTTP.setDataSerializer('json')
     });
   }
 
