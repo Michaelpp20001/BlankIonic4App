@@ -27,6 +27,9 @@
           <ion-label position="floating">Password</ion-label>
           <ion-input [(ngModel)]="this.authGuard.authInfo.password" type="password"></ion-input>
         </ion-item>
-    <ion-button *ngIf="this.authGuard.authInfo.authenticated === false"(click)="register(this.authGuard.authInfo)">Login</ion-button>
+    <ion-button (click)="register(this.authGuard.authInfo)">Login</ion-button>
+    <div>Don't have an account?
+      <ion-button routerLink='/register' routerDirection="forward">Make an account</ion-button>
+    </div>
     <p *ngIf="mustLogIn === true">Please log in to proceed, p.s. because I have a guarded route!</p>
 </ion-content>

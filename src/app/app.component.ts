@@ -35,6 +35,11 @@ export class AppComponent {
       url   : "/login",
       icon  : "person"
     },
+    {
+      title : "Register",
+      url   : "/register",
+      icon  : "contacts"
+    },
   ]
 
   nav2 =

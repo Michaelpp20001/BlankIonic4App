@@ -16,7 +16,12 @@ const routes: Routes = [
   },
   {
     path: 'inputs',
-    loadChildren: () => import('./inputs/inputs.module').then( m => m.InputsPageModule)
+    loadChildren: () => import('./inputs/inputs.module').then( m => m.InputsPageModule),
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
   },
 ];
 

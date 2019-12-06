@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-menu-button autoHide=false menuId="first"></ion-menu-button>
+      </ion-buttons>
+    <ion-title>register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="ion-padding">
+        <p>Register a new user to my Blank App</p>
+      </div>
+        <ion-item>
+            <ion-label position="floating">First Name</ion-label>
+            <ion-input [(ngModel)]="this.authGuard.authInfo.firstName" name="firstName"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Last Name</ion-label>
+            <ion-input [(ngModel)]="this.authGuard.authInfo.lastName" name="lastName"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Email</ion-label>
+            <ion-input [(ngModel)]="this.authGuard.authInfo.email" name="email"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label position="floating">Password</ion-label>
+              <ion-input [(ngModel)]="this.authGuard.authInfo.password" type="password"></ion-input>
+            </ion-item>
+        <ion-button (click)="register(this.authGuard.authInfo)">Register</ion-button>
+        <div>Already have an account?
+          <ion-button routerLink='/login' routerDirection="forward">Go To Login</ion-button>
+        </div>
+        <p *ngIf="mustRegister === true">Please register to proceed, p.s. because I have a guarded route!</p>
+</ion-content>
