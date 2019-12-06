@@ -15,10 +15,10 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
-  register(userData) {
-    if(this.authGuard.authInfo.firstName && this.authGuard.authInfo.lastName && this.authGuard.authInfo.email && this.authGuard.authInfo.password) {
+  login(userData) {
+    if(this.authGuard.authInfo.email && this.authGuard.authInfo.password) {
       this.authGuard.authInfo.authenticated = true;
-      this.authGuard.register(userData)
+      this.authGuard.login(userData)
       .subscribe(data => {
         this.authGuard.userInfo = data;
         console.log("User Authenticated Info",this.authGuard.userInfo);

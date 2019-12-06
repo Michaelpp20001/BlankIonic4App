@@ -36,4 +36,8 @@ export class AuthGuardService implements CanActivate {
   register(userData) {
     return this.ngHttp.post(`${this.baseUrl}`, userData)
   }
+
+  login(userData) {
+    return this.ngHttp.post(`${this.baseUrl}/login`, userData)
+  }
 }
