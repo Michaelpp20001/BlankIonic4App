@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
 
-  constructor(private authGuard: AuthGuardService, private router: Router) { }
+  constructor(public authGuard: AuthGuardService, public router: Router) { }
   mustLogIn: boolean
 
   ngOnInit() {

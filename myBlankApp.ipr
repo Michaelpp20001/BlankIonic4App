@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="InspectionProjectProfileManager">
+    <profile version="1.0">
+      <option name="myName" value="Project Default" />
+    </profile>
+    <version value="1.0" />
+  </component>
+  <component name="ProjectCodeStyleConfiguration">
+    <code_scheme name="Project" version="173">
+      <codeStyleSettings language="XML">
+        <indentOptions>
+          <option name="CONTINUATION_INDENT_SIZE" value="4" />
+        </indentOptions>
+        <arrangement>
+          <rules>
+            <section>
+              <rule>
+                <match>
+                  <AND>
+                    <NAME>xmlns:android</NAME>
+                    <XML_ATTRIBUTE />
+                    <XML_NAMESPACE>^$</XML_NAMESPACE>
+                  </AND>
+                </match>
+              </rule>
+            </section>
+            <section>
+              <rule>
+                <match>
+                  <AND>
+                    <NAME>xmlns:.*</NAME>
+                    <XML_ATTRIBUTE />
+                    <XML_NAMESPACE>^$</XML_NAMESPACE>
+                  </AND>
+                </match>
+                <order>BY_NAME</order>
+              </rule>
+            </section>
+            <section>
+              <rule>
+                <match>
+                  <AND>
+                    <NAME>.*:id</NAME>
+                    <XML_ATTRIBUTE />
+                    <XML_NAMESPACE>http://schemas.android.com/apk/res/android</XML_NAMESPACE>
+                  </AND>
+                </match>
+              </rule>
+            </section>
+            <section>
+              <rule>
+                <match>
+                  <AND>
+                    <NAME>.*:name</NAME>
+                    <XML_ATTRIBUTE />
+                    <XML_NAMESPACE>http://schemas.android.com/apk/res/android</XML_NAMESPACE>
+                  </AND>
+                </match>
+              </rule>
+            </section>
+            <section>
+              <rule>
+                <match>
+                  <AND>
+                    <NAME>name</NAME>
+                    <XML_ATTRIBUTE />
+                    <XML_NAMESPACE>^$</XML_NAMESPACE>
+                  </AND>
+                </match>
+              </rule>
+            </section>
+            <section>
+              <rule>
+                <match>
+                  <AND>
+                    <NAME>style</NAME>
+                    <XML_ATTRIBUTE />
+                    <XML_NAMESPACE>^$</XML_NAMESPACE>
+                  </AND>
+                </match>
+              </rule>
+            </section>
+            <section>
+              <rule>
+                <match>
+                  <AND>
+                    <NAME>.*</NAME>
+                    <XML_ATTRIBUTE />
+                    <XML_NAMESPACE>^$</XML_NAMESPACE>
+                  </AND>
+                </match>
+                <order>BY_NAME</order>
+              </rule>
+            </section>
+            <section>
+              <rule>
+                <match>
+                  <AND>
+                    <NAME>.*</NAME>
+                    <XML_ATTRIBUTE />
+                    <XML_NAMESPACE>http://schemas.android.com/apk/res/android</XML_NAMESPACE>
+                  </AND>
+                </match>
+                <order>ANDROID_ATTRIBUTE_ORDER</order>
+              </rule>
+            </section>
+            <section>
+              <rule>
+                <match>
+                  <AND>
+                    <NAME>.*</NAME>
+                    <XML_ATTRIBUTE />
+                    <XML_NAMESPACE>.*</XML_NAMESPACE>
+                  </AND>
+                </match>
+                <order>BY_NAME</order>
+              </rule>
+            </section>
+          </rules>
+        </arrangement>
+      </codeStyleSettings>
+    </code_scheme>
+  </component>
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/platforms/android/CordovaLib/CordovaLib.iml" filepath="$PROJECT_DIR$/platforms/android/CordovaLib/CordovaLib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/platforms/android/CordovaLib/build/generated/source/buildConfig/buildConfig.iml" filepath="$PROJECT_DIR$/platforms/android/CordovaLib/build/generated/source/buildConfig/buildConfig.iml" />
+      <module fileurl="file://$PROJECT_DIR$/platforms/android/app/build/generated/source/buildConfig/buildConfig1.iml" filepath="$PROJECT_DIR$/platforms/android/app/build/generated/source/buildConfig/buildConfig1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/platforms/android/app/build/intermediates/bundle_manifest/debug/processDebugManifest/bundle-manifest/bundle-manifest.iml" filepath="$PROJECT_DIR$/platforms/android/app/build/intermediates/bundle_manifest/debug/processDebugManifest/bundle-manifest/bundle-manifest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugins/cordova-plugin-advanced-http/src/cordova-plugin-advanced-http.iml" filepath="$PROJECT_DIR$/plugins/cordova-plugin-advanced-http/src/cordova-plugin-advanced-http.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugins/cordova-plugin-device/src/cordova-plugin-device.iml" filepath="$PROJECT_DIR$/plugins/cordova-plugin-device/src/cordova-plugin-device.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugins/cordova-plugin-file/src/cordova-plugin-file.iml" filepath="$PROJECT_DIR$/plugins/cordova-plugin-file/src/cordova-plugin-file.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugins/cordova-plugin-ionic-keyboard/src/cordova-plugin-ionic-keyboard.iml" filepath="$PROJECT_DIR$/plugins/cordova-plugin-ionic-keyboard/src/cordova-plugin-ionic-keyboard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugins/cordova-plugin-ionic-webview/src/cordova-plugin-ionic-webview.iml" filepath="$PROJECT_DIR$/plugins/cordova-plugin-ionic-webview/src/cordova-plugin-ionic-webview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugins/cordova-plugin-splashscreen/src/cordova-plugin-splashscreen.iml" filepath="$PROJECT_DIR$/plugins/cordova-plugin-splashscreen/src/cordova-plugin-splashscreen.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugins/cordova-plugin-statusbar/src/cordova-plugin-statusbar.iml" filepath="$PROJECT_DIR$/plugins/cordova-plugin-statusbar/src/cordova-plugin-statusbar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugins/cordova-plugin-whitelist/src/cordova-plugin-whitelist.iml" filepath="$PROJECT_DIR$/plugins/cordova-plugin-whitelist/src/cordova-plugin-whitelist.iml" />
+      <module fileurl="file://$PROJECT_DIR$/platforms/android/app/build/intermediates/merged_manifests/debug/debug.iml" filepath="$PROJECT_DIR$/platforms/android/app/build/intermediates/merged_manifests/debug/debug.iml" />
+      <module fileurl="file://$PROJECT_DIR$/platforms/android/app/build/intermediates/instant_app_manifest/debug/processDebugManifest/instant-app-manifest/instant-app-manifest.iml" filepath="$PROJECT_DIR$/platforms/android/app/build/intermediates/instant_app_manifest/debug/processDebugManifest/instant-app-manifest/instant-app-manifest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/platforms/android/app/src/main/main.iml" filepath="$PROJECT_DIR$/platforms/android/app/src/main/main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/platforms/android/app/build/generated/not_namespaced_r_class_sources/debug/processDebugResources/processDebugResources.iml" filepath="$PROJECT_DIR$/platforms/android/app/build/generated/not_namespaced_r_class_sources/debug/processDebugResources/processDebugResources.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugins/cordova-plugin-file/tests/src/tests.iml" filepath="$PROJECT_DIR$/plugins/cordova-plugin-file/tests/src/tests.iml" />
+    </modules>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="Android API 28 Platform" project-jdk-type="Android SDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+  </component>
+  <component name="libraryTable">
+    <library name="0">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/platforms/android/app/build/intermediates/transforms/mergeJavaRes/debug/0.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="debug">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/platforms/android/app/build/intermediates/transforms/dexBuilder/debug/1.jar!/" />
+        <root url="jar://$PROJECT_DIR$/platforms/android/app/build/intermediates/transforms/dexBuilder/debug/8.jar!/" />
+        <root url="jar://$PROJECT_DIR$/platforms/android/app/build/intermediates/transforms/dexBuilder/debug/13.jar!/" />
+        <root url="jar://$PROJECT_DIR$/platforms/android/app/build/intermediates/transforms/dexBuilder/debug/3.jar!/" />
+        <root url="jar://$PROJECT_DIR$/platforms/android/app/build/intermediates/transforms/dexBuilder/debug/6.jar!/" />
+        <root url="jar://$PROJECT_DIR$/platforms/android/app/build/intermediates/transforms/dexBuilder/debug/9.jar!/" />
+        <root url="jar://$PROJECT_DIR$/platforms/android/app/build/intermediates/transforms/dexBuilder/debug/0.jar!/" />
+        <root url="jar://$PROJECT_DIR$/platforms/android/app/build/intermediates/transforms/dexBuilder/debug/10.jar!/" />
+        <root url="jar://$PROJECT_DIR$/platforms/android/app/build/intermediates/transforms/dexBuilder/debug/16.jar!/" />
+        <root url="jar://$PROJECT_DIR$/platforms/android/app/build/intermediates/transforms/dexBuilder/debug/18.jar!/" />
+        <root url="jar://$PROJECT_DIR$/platforms/android/app/build/intermediates/transforms/dexBuilder/debug/12.jar!/" />
+        <root url="jar://$PROJECT_DIR$/platforms/android/app/build/intermediates/transforms/dexBuilder/debug/14.jar!/" />
+        <root url="jar://$PROJECT_DIR$/platforms/android/app/build/intermediates/transforms/dexBuilder/debug/19.jar!/" />
+        <root url="jar://$PROJECT_DIR$/platforms/android/app/build/intermediates/transforms/dexBuilder/debug/7.jar!/" />
+        <root url="jar://$PROJECT_DIR$/platforms/android/app/build/intermediates/transforms/dexBuilder/debug/2.jar!/" />
+        <root url="jar://$PROJECT_DIR$/platforms/android/app/build/intermediates/transforms/dexBuilder/debug/5.jar!/" />
+        <root url="jar://$PROJECT_DIR$/platforms/android/app/build/intermediates/transforms/dexBuilder/debug/4.jar!/" />
+        <root url="jar://$PROJECT_DIR$/platforms/android/app/build/intermediates/transforms/dexBuilder/debug/11.jar!/" />
+        <root url="jar://$PROJECT_DIR$/platforms/android/app/build/intermediates/transforms/dexBuilder/debug/17.jar!/" />
+        <root url="jar://$PROJECT_DIR$/platforms/android/app/build/intermediates/transforms/dexBuilder/debug/15.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="debug1">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/intermediate-jars/debug/res.jar!/" />
+        <root url="jar://$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/intermediate-jars/debug/classes.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="gradle-wrapper">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/platforms/android/gradle/wrapper/gradle-wrapper.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="R">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/compile_only_not_namespaced_r_class_jar/debug/generateDebugRFile/R.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="TestLib">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/node_modules/cordova-android/spec/fixtures/org.test.plugins.dummyplugin/src/android/TestLib.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+  </component>
+</project>
