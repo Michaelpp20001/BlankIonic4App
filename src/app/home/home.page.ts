@@ -8,7 +8,7 @@ import { AuthGuardService } from '../services/auth-guard.service';
 })
 export class HomePage {
 
-  constructor(private authGuard: AuthGuardService) {}
+  constructor(public authGuard: AuthGuardService) {}
 
   myInfo() {
     console.log("Michael")

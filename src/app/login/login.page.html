@@ -8,19 +8,26 @@
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
+  <div>
     <p>Log In to my Blank App</p>
   </div>
+  <ion-card>
+    <ion-card-content>
       <ion-item>
-        <ion-label position="floating">Email</ion-label>
+        <ion-label position="stacked">Email</ion-label>
         <ion-input [(ngModel)]="this.authGuard.authInfo.email" name="email"></ion-input>
       </ion-item>
       <ion-item>
-          <ion-label position="floating">Password</ion-label>
+          <ion-label position="stacked">Password</ion-label>
           <ion-input [(ngModel)]="this.authGuard.authInfo.password" type="password"></ion-input>
         </ion-item>
-    <ion-button (click)="login(this.authGuard.authInfo)">Login</ion-button>
-    <ion-button (click)="loginHTTP(this.authGuard.authInfo)">Advanced HTTP Login</ion-button>
+        <ion-item lines="none">
+          <ion-button (click)="login(this.authGuard.authInfo)" fill="outline" slot="end">Login</ion-button>
+        </ion-item>
+    </ion-card-content>
+  </ion-card>
+    <!--re enable if want to use/try advanced http plugin for dev app
+      <ion-button (click)="loginHTTP(this.authGuard.authInfo)">Advanced HTTP Login</ion-button>-->
     <p>
       Don't have an account?
       <a routerLink='/register' routerDirection="forward">Make an account</a>

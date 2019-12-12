@@ -11,7 +11,7 @@ export class RegisterPage implements OnInit {
 
   mustRegister: boolean;
 
-  constructor(private router: Router, private authGuard: AuthGuardService) { }
+  constructor(public router: Router, public authGuard: AuthGuardService) { }
 
   ngOnInit() {
   }

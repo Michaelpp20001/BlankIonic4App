@@ -23,8 +23,13 @@ export class AuthGuardService implements CanActivate {
   //this url works for browser requests
   baseUrl: string = "http://localhost:3000/api/appUsers"
 
-  //this url works for dev app requests
+  //this url works for dev app requests at home
   advancedBaseUrl: string = "http://192.168.1.179:3000/api/appUsers"
+
+  //this url works for dev app requests at Learn
+  baseUrlLearn: string = "http://192.168.35.128:3000/api/appUsers"
+
+  baseUrlSoftStack: string = "http://192.168.0.109:3000/api/appUsers"
 
   canActivate(route: ActivatedRouteSnapshot): boolean {
     console.log(route);
@@ -42,7 +47,7 @@ export class AuthGuardService implements CanActivate {
   }
 
   login(userData) {
-    return this.ngHttp.post(`${this.advancedBaseUrl}/login`, userData)
+    return this.ngHttp.post(`${this.baseUrlSoftStack}/login`, userData)
   }
 
   getUserInfo(userInfo) {
