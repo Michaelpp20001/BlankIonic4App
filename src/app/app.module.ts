@@ -12,6 +12,7 @@ import { HTTP } from '@ionic-native/http/ngx';
 import { HttpClientModule } from '@angular/common/http'
 import { Camera } from '@ionic-native/camera/ngx'
 import { IonicStorageModule } from '@ionic/storage';
+import { PhotoServiceService } from './services/photo.service'
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { IonicStorageModule } from '@ionic/storage';
     HTTP,
     StatusBar,
     SplashScreen,
+    PhotoServiceService,
     Camera,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
