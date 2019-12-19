@@ -16,7 +16,11 @@
     <ion-card-content>
       <ion-item>
         <ion-label position="stacked">Email</ion-label>
-        <ion-input [(ngModel)]="this.authGuard.authInfo.email" name="email"></ion-input>
+        <ion-input
+        
+        [(ngModel)]="this.authGuard.authInfo.email" name="email"></ion-input
+          
+         >
       </ion-item>
       <ion-item>
           <ion-label position="stacked">Password</ion-label>
@@ -27,8 +31,7 @@
         </ion-item>
     </ion-card-content>
   </ion-card>
-    <!--re enable if want to use/try advanced http plugin for dev app
-      <ion-button (click)="loginHTTP(this.authGuard.authInfo)">Advanced HTTP Login</ion-button>-->
+      <!--<ion-button (click)="loginHTTP(this.authGuard.authInfo)">Advanced HTTP Login</ion-button>-->
     <p>
       Don't have an account?
       <a routerLink='/register' routerDirection="forward">Make an account</a>
