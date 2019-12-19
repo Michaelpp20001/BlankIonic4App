@@ -1,9 +1,25 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>photo-gallery</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide=false menuId="first"></ion-menu-button>
+  </ion-buttons>
+    <ion-title>Photo Gallery</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-xs="6" size-sm="4" *ngFor="let photo of photoService.photos">
+        <img [src]="photo.data" />
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+<ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button (click)="this.photoService.takePicture()">
+      <ion-icon name="camera"></ion-icon>
+    </ion-fab-button>
+</ion-fab>
 
 </ion-content>

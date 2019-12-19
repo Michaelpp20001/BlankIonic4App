@@ -21,7 +21,7 @@ export class AppComponent {
       icon  : "home"
     },
     {
-      title : "About",
+      title : "About/Grid",
       url   : "/about",
       icon  : "alert"
     },
@@ -29,6 +29,11 @@ export class AppComponent {
       title : "Inputs/Outputs",
       url   : "/inputs",
       icon  : "git-compare"
+    },
+    {
+      title : "Photo Gallery",
+      url   : "/photo-gallery",
+      icon  : "camera"
     },
     {
       title : "Login",
