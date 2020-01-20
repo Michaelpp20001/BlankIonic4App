@@ -47,35 +47,11 @@ export class AppComponent {
     },
   ]
 
-  nav2 =
-    [
-      {
-        title : "Home",
-        url   : "/home",
-        icon  : "home"
-      },
-      {
-        title : "About",
-        url   : "/about",
-        icon  : "alert"
-      },
-      {
-        title : "Inputs/Outputs",
-        url   : "/inputs",
-        icon  : "git-compare"
-      },
-      {
-        title : "Logout",
-        url   : "/logout",
-        icon  : "person"
-      },
-    ]
-
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private AuthService: AuthGuardService,
+    private authService: AuthGuardService,
     private HTTP: HTTP,
   ) {
     this.initializeApp();
@@ -87,6 +63,12 @@ export class AppComponent {
       this.splashScreen.hide();
       this.HTTP.setDataSerializer('json')
     });
+  }
+
+  onLogout(token) {
+    this.authService.logout(token)
+    console.log("logout user", this.authService.userInfo)
+    this.authService.clearUserInfo()
   }
 
 }

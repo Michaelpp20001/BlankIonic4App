@@ -26,12 +26,22 @@ export class LoginPage implements OnInit {
       .subscribe(loginData => {
         this.authGuard.userInfo = loginData;
         console.log("User Login",this.authGuard.userInfo);
+
+        //holding onto user info from either a browser, or native storage
         sessionStorage.setItem("userId", this.authGuard.userInfo.userId)
         sessionStorage.setItem("token", this.authGuard.userInfo.token)
         this.storage.set("userId", this.authGuard.userInfo.userId)
         this.storage.set("token", this.authGuard.userInfo.userId)
+
+        //setting user id and token to a variable programmatically for use later
+        this.authGuard.userId = this.authGuard.userInfo.userId
+        this.authGuard.userToken = this.authGuard.userInfo.token
+
+        //getting all user info from backend
         this.authGuard.getUserInfo(loginData)
         .subscribe(userData => {
+
+          //setting all user info to a variable for use later (except user token)
           this.authGuard.userInfo = userData;
           console.log("User Authenticated Info", this.authGuard.userInfo);
         })
