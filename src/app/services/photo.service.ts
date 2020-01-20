@@ -11,6 +11,7 @@ class Photo {
 }
 
 export class PhotoServiceService {
+  photoDetail: any;
 
   public photos: Photo[] = [];
 

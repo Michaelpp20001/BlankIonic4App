@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { PhotoServiceService } from '../services/photo.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-photo-gallery',
@@ -8,10 +9,15 @@ import { PhotoServiceService } from '../services/photo.service';
 })
 export class PhotoGalleryPage  {
 
-  constructor(public photoService: PhotoServiceService) { }
+  constructor(public photoService: PhotoServiceService, public router: Router) { }
 
   ngOnInit() {
     this.photoService.loadSaved();
+  }
+
+  detail(photo) {
+    this.photoService.photoDetail = photo
+    this.router.navigate(['photo-detail'])
   }
 
 }
