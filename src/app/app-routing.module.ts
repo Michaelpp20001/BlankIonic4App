@@ -28,6 +28,10 @@ const routes: Routes = [
     loadChildren: () => import('./photo-gallery/photo-gallery.module').then( m => m.PhotoGalleryPageModule),
     canActivate: [AuthGuardService]
   },
+  {
+    path: 'photo-detail',
+    loadChildren: () => import('./photo-detail/photo-detail.module').then( m => m.PhotoDetailPageModule)
+  },
 ];
 
 @NgModule({
