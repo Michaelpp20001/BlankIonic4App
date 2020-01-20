@@ -15,6 +15,11 @@ export class PhotoGalleryPage  {
     this.photoService.loadSaved();
   }
 
+
+  delete(photo) {
+    this.photoService.presentDeleteConfirm(photo)
+  }
+
   detail(photo) {
     this.photoService.photoDetail = photo
     this.router.navigate(['photo-detail'])

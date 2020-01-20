@@ -12,6 +12,10 @@
     <ion-row>
       <ion-col size-xs="6" size-sm="4" *ngFor="let photo of photoService.photos">
         <img (click)="detail(photo)" [src]="photo.data" />
+        <ion-chip (click)="delete(photo)" outline color="danger">
+          <ion-icon name="close-circle"></ion-icon>
+          <ion-label>Delete</ion-label>
+        </ion-chip>
       </ion-col>
     </ion-row>
   </ion-grid>
