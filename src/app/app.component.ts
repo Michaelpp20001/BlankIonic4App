@@ -31,6 +31,11 @@ export class AppComponent {
       icon  : "git-compare"
     },
     {
+      title : "Ionic Speaking",
+      url   : "/ionic-speaking",
+      icon  : "volume-high"
+    },
+    {
       title : "Photo Gallery",
       url   : "/photo-gallery",
       icon  : "camera"

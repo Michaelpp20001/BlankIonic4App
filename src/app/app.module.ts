@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http'
 import { Camera } from '@ionic-native/camera/ngx'
 import { IonicStorageModule } from '@ionic/storage';
 import { PhotoServiceService } from './services/photo.service'
+import { TextToSpeech } from '@ionic-native/text-to-speech/ngx';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { PhotoServiceService } from './services/photo.service'
     SplashScreen,
     PhotoServiceService,
     Camera,
+    TextToSpeech,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

@@ -32,6 +32,11 @@ const routes: Routes = [
     path: 'photo-detail',
     loadChildren: () => import('./photo-detail/photo-detail.module').then( m => m.PhotoDetailPageModule)
   },
+  {
+    path: 'ionic-speaking',
+    loadChildren: () => import('./ionic-speaking/ionic-speaking.module').then( m => m.IonicSpeakingPageModule),
+    canActivate: [AuthGuardService]
+  },
 ];
 
 @NgModule({

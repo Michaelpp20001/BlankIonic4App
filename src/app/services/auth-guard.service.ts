@@ -39,6 +39,9 @@ export class AuthGuardService implements CanActivate {
   //this url works for dev app requests at SoftStack offices
   baseUrlSoftStack: string = "http://192.168.0.109:3000/api/appUsers"
 
+  //this url works for dev app requests at SoftStack offices 5G
+  baseUrlSoftStack5G: string = "http://192.168.0.124:3000/api/appUsers"
+
   canActivate(route: ActivatedRouteSnapshot): boolean {
     console.log(route);
 
@@ -51,19 +54,19 @@ export class AuthGuardService implements CanActivate {
   }
 
   register(userData) {
-    return this.ngHttp.post(`${this.advancedBaseUrl}`, userData)
+    return this.ngHttp.post(`${this.baseUrlSoftStack5G}`, userData)
   }
 
   login(userData) {
-    return this.ngHttp.post(`${this.advancedBaseUrl}/login`, userData)
+    return this.ngHttp.post(`${this.baseUrlSoftStack5G}/login`, userData)
   }
 
   logout(token) {
-    return this.ngHttp.post(`${this.advancedBaseUrl}/logout?access_token=${token}`, token)
+    return this.ngHttp.post(`${this.baseUrlSoftStack5G}/logout?access_token=${token}`, token)
   }
 
   getUserInfo(userInfo) {
-    return this.ngHttp.get(`${this.advancedBaseUrl}/${userInfo.userId}?access_token=${this.userToken}`)
+    return this.ngHttp.get(`${this.baseUrlSoftStack5G}/${userInfo.userId}?access_token=${userInfo.token}`)
   }
 
   clearUserInfo() {
