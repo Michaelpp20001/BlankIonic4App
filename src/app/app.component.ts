@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AuthGuardService } from './services/auth-guard.service';
 import { HTTP } from '@ionic-native/http/ngx';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -58,6 +59,7 @@ export class AppComponent {
     private statusBar: StatusBar,
     private authService: AuthGuardService,
     private HTTP: HTTP,
+    private router: Router,
   ) {
     this.initializeApp();
   }
@@ -74,6 +76,7 @@ export class AppComponent {
     this.authService.logout(token)
     console.log("logout user", this.authService.userInfo)
     this.authService.clearUserInfo()
+    this.router.navigate(["/login"])
   }
 
 }
