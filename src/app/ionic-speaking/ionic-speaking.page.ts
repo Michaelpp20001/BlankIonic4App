@@ -17,7 +17,7 @@ export class IonicSpeakingPage implements OnInit {
 
   textSentence: string
   locale: string
-  range: number
+  range: number = .01
 
   speak() {
     this.TTS.speak({

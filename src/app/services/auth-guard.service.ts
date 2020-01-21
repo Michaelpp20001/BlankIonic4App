@@ -55,7 +55,7 @@ export class AuthGuardService implements CanActivate {
     await alert.present();
   }
 
-  //Activated route logic
+  //Activated route logic, only home route is activated for a logged in user, check app routing module
   canActivate(route: ActivatedRouteSnapshot): boolean {
     console.log(route);
     if (!this.authInfo.authenticated) {
@@ -67,19 +67,19 @@ export class AuthGuardService implements CanActivate {
   }
 
   register(userData) {
-    return this.ngHttp.post(`${this.baseUrlLearn}`, userData)
+    return this.ngHttp.post(`${this.advancedBaseUrl}`, userData)
   }
 
   login(userData) {
-    return this.ngHttp.post(`${this.baseUrlLearn}/login`, userData)
+    return this.ngHttp.post(`${this.advancedBaseUrl}/login`, userData)
   }
 
   logout(token) {
-    return this.ngHttp.post(`${this.baseUrlLearn}/logout?access_token=${token}`, token)
+    return this.ngHttp.post(`${this.advancedBaseUrl}/logout?access_token=${token}`, token)
   }
 
   getUserInfo(userInfo) {
-    return this.ngHttp.get(`${this.baseUrlLearn}/${userInfo.userId}?access_token=${userInfo.token}`)
+    return this.ngHttp.get(`${this.advancedBaseUrl}/${userInfo.userId}?access_token=${userInfo.token}`)
   }
 
   clearUserInfo() {
