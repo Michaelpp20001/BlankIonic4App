@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button autoHide=false menuId="first"></ion-menu-button>
+      </ion-buttons>
+    <ion-title>Ionic Speaking</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+  <ion-card color="tertiary">
+    <img src="../../assets/text-to-speech-java.jpg">
+    <ion-card-header>
+      <ion-card-title><ion-text color="dark">Converts text to speech</ion-text></ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="stacked">What would you like to say?</ion-label>
+        <ion-input [(ngModel)]="this.textSentence" name="text"></ion-input>
+      </ion-item>
+      <ion-list>
+        <ion-list-header>Select one</ion-list-header>
+        <ion-item>
+          <ion-label>Choose Language</ion-label>
+          <ion-select [(ngModel)]="this.locale" placeholder="Select One">
+            <ion-select-option value="en_US">English(United States)</ion-select-option>
+            <ion-select-option value="en_GB">English(United Kingdom)</ion-select-option>
+            <ion-select-option value="en_US_POSIX">English(United States Computer)</ion-select-option>
+            <ion-select-option value="es_ES">Spanish</ion-select-option>
+            <ion-select-option value="fr_FR">French</ion-select-option>
+            <ion-select-option value="it_IT">Italian</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

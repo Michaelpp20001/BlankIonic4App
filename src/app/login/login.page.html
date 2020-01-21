@@ -15,15 +15,11 @@
     <img src="../../assets/ionic-framework-og.png">
     <ion-card-content>
       <ion-item>
-        <ion-label position="stacked">Email</ion-label>
-        <ion-input
-        
-        [(ngModel)]="this.authGuard.authInfo.email" name="email"></ion-input
-          
-         >
+        <ion-label position="stacked">Email <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input [(ngModel)]="this.authGuard.authInfo.email" name="email"></ion-input>
       </ion-item>
       <ion-item>
-          <ion-label position="stacked">Password</ion-label>
+          <ion-label position="stacked">Password <ion-text color="danger">*</ion-text></ion-label>
           <ion-input [(ngModel)]="this.authGuard.authInfo.password" type="password"></ion-input>
         </ion-item>
         <ion-item lines="none">
