@@ -3,6 +3,7 @@ import { Router, CanActivate, ActivatedRouteSnapshot } from "@angular/router";
 import { HTTP } from '@ionic-native/http/ngx';
 import { HttpClient } from '@angular/common/http';
 import { Storage } from '@ionic/storage';
+import { AlertController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,7 @@ export class AuthGuardService implements CanActivate {
      private HTTP: HTTP, 
      private ngHttp: HttpClient,
      public storage: Storage,
+     public alertController: AlertController,
      ) { }
 
   authInfo = {
@@ -34,7 +36,7 @@ export class AuthGuardService implements CanActivate {
   advancedBaseUrl: string = "http://192.168.1.179:3000/api/appUsers"
 
   //this url works for dev app requests at Learn
-  baseUrlLearn: string = "http://192.168.35.128:3000/api/appUsers"
+  baseUrlLearn: string = "http://192.168.35.101:3000/api/appUsers"
 
   //this url works for dev app requests at SoftStack offices
   baseUrlSoftStack: string = "http://192.168.0.109:3000/api/appUsers"
@@ -42,31 +44,42 @@ export class AuthGuardService implements CanActivate {
   //this url works for dev app requests at SoftStack offices 5G
   baseUrlSoftStack5G: string = "http://192.168.0.124:3000/api/appUsers"
 
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Access Denied',
+      subHeader: 'Please Login',
+      message: 'Full use of this application is only available for users that have registered and logged in.',
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  }
+
+  //Activated route logic
   canActivate(route: ActivatedRouteSnapshot): boolean {
     console.log(route);
-
     if (!this.authInfo.authenticated) {
       this.router.navigate(["login"]);
+      this.presentAlert();
       return false;
     }
-
     return true;
   }
 
   register(userData) {
-    return this.ngHttp.post(`${this.baseUrlSoftStack5G}`, userData)
+    return this.ngHttp.post(`${this.baseUrlLearn}`, userData)
   }
 
   login(userData) {
-    return this.ngHttp.post(`${this.baseUrlSoftStack5G}/login`, userData)
+    return this.ngHttp.post(`${this.baseUrlLearn}/login`, userData)
   }
 
   logout(token) {
-    return this.ngHttp.post(`${this.baseUrlSoftStack5G}/logout?access_token=${token}`, token)
+    return this.ngHttp.post(`${this.baseUrlLearn}/logout?access_token=${token}`, token)
   }
 
   getUserInfo(userInfo) {
-    return this.ngHttp.get(`${this.baseUrlSoftStack5G}/${userInfo.userId}?access_token=${userInfo.token}`)
+    return this.ngHttp.get(`${this.baseUrlLearn}/${userInfo.userId}?access_token=${userInfo.token}`)
   }
 
   clearUserInfo() {

@@ -15,8 +15,17 @@ export class IonicSpeakingPage implements OnInit {
   ngOnInit() {
   }
 
-  textSentence = ""
-  locale = ""
+  textSentence: string
+  locale: string
+  range: number
 
-
+  speak() {
+    this.TTS.speak({
+      text: this.textSentence,
+      locale: this.locale,
+      rate: this.range
+  })
+    .then(() => console.log('Success'))
+    .catch((reason: any) => console.log(reason));
+  }
 }
