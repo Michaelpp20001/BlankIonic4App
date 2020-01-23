@@ -42,6 +42,11 @@ export class AppComponent {
       icon  : "camera"
     },
     {
+      title : "Points of Interest",
+      url   : "/points-of-interest",
+      icon  : "pin"
+    },
+    {
       title : "Login",
       url   : "/login",
       icon  : "person"

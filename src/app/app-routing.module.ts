@@ -37,6 +37,10 @@ const routes: Routes = [
     loadChildren: () => import('./ionic-speaking/ionic-speaking.module').then( m => m.IonicSpeakingPageModule),
     canActivate: [AuthGuardService]
   },
+  {
+    path: 'points-of-interest',
+    loadChildren: () => import('./points-of-interest/points-of-interest.module').then( m => m.PointsOfInterestPageModule)
+  },
 ];
 
 @NgModule({

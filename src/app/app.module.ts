@@ -14,6 +14,7 @@ import { Camera } from '@ionic-native/camera/ngx'
 import { IonicStorageModule } from '@ionic/storage';
 import { PhotoServiceService } from './services/photo.service'
 import { TextToSpeech } from '@ionic-native/text-to-speech/ngx';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { TextToSpeech } from '@ionic-native/text-to-speech/ngx';
     PhotoServiceService,
     Camera,
     TextToSpeech,
+    Geolocation,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
