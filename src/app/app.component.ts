@@ -79,9 +79,21 @@ export class AppComponent {
 
   onLogout(token) {
     this.authGuard.logout(token).subscribe( (res: any) => {
-        console.log("logout user pre clear", "userInfo", this.authGuard.userInfo, "current user", this.authGuard.userId, "current token", this.authGuard.userToken)
+
+        console.log(
+          "logout user pre clear", this.authGuard.userInfo,
+          "current user", this.authGuard.userId,
+          "current token", this.authGuard.userToken
+          )
+
         this.authGuard.clearUserInfo()
-        console.log("logout user post clear", "userInfo", this.authGuard.userInfo, "current user", this.authGuard.userId, "current token", this.authGuard.userToken)
+
+        console.log(
+          "logout user post clear", this.authGuard.userInfo, 
+          "current user", this.authGuard.userId, 
+          "current token", this.authGuard.userToken
+          )
+
         this.router.navigate(["/login"])
     })
   }
