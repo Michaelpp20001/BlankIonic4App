@@ -8,5 +8,10 @@
 </ion-header>
 
 <ion-content>
+  <p>My latitude: {{this.mapService.currentLatitude}}</p>
+  <p>My longitude: {{this.mapService.currentLongitude}}</p>
+  <ion-item>
+    <ion-button (click)="this.mapService.currentLocation()">Find my location</ion-button>
+  </ion-item>
 
 </ion-content>

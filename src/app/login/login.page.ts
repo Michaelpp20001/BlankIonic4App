@@ -31,11 +31,17 @@ export class LoginPage implements OnInit {
         sessionStorage.setItem("userId", this.authGuard.userInfo.userId)
         sessionStorage.setItem("token", this.authGuard.userInfo.token)
         this.storage.set("userId", this.authGuard.userInfo.userId)
-        this.storage.set("token", this.authGuard.userInfo.userId)
+        this.storage.set("token", this.authGuard.userInfo.token)
 
         //setting user id and token to a variable programmatically for use later
+        
+        //HAS TO BE SET HERE; OTHERWISE DID NOT ROCOGNIZE CURRENT USER ONLY PAST LOGIN TOKEN/ID
         this.authGuard.userId = this.authGuard.userInfo.userId
         this.authGuard.userToken = this.authGuard.userInfo.token
+
+        //making sure token and id are set
+        console.log("userId set", this.authGuard.userId)
+        console.log("token set", this.authGuard.userToken)
 
         //getting all user info from backend
         this.authGuard.getUserInfo(loginData)

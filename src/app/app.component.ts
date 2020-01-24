@@ -62,7 +62,7 @@ export class AppComponent {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private authService: AuthGuardService,
+    private authGuard: AuthGuardService,
     private HTTP: HTTP,
     private router: Router,
   ) {
@@ -78,10 +78,12 @@ export class AppComponent {
   }
 
   onLogout(token) {
-    this.authService.logout(token)
-    console.log("logout user", this.authService.userInfo)
-    this.authService.clearUserInfo()
-    this.router.navigate(["/login"])
+    this.authGuard.logout(token).subscribe( (res: any) => {
+        console.log("logout user pre clear", "userInfo", this.authGuard.userInfo, "current user", this.authGuard.userId, "current token", this.authGuard.userToken)
+        this.authGuard.clearUserInfo()
+        console.log("logout user post clear", "userInfo", this.authGuard.userInfo, "current user", this.authGuard.userId, "current token", this.authGuard.userToken)
+        this.router.navigate(["/login"])
+    })
   }
 
 }

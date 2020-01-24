@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MapService } from '../services/map.service';
 
 @Component({
   selector: 'app-points-of-interest',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PointsOfInterestPage implements OnInit {
 
-  constructor() { }
+  constructor(
+    private mapService: MapService
+  ) { }
 
   ngOnInit() {
   }

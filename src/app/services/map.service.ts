@@ -7,6 +7,18 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 export class MapService {
 
   constructor(
-    private geolacation: Geolocation
+    private geolocation: Geolocation
   ) { }
+
+  currentLatitude: any
+  currentLongitude: any
+
+  currentLocation() {
+  this.geolocation.getCurrentPosition().then((resp) => {
+    this.currentLatitude = resp.coords.latitude
+    this.currentLongitude = resp.coords.longitude
+   }).catch((error) => {
+     console.log('Error getting location', error);
+   });
+  }
 }

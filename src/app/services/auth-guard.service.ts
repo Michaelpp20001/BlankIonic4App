@@ -26,14 +26,14 @@ export class AuthGuardService implements CanActivate {
   }
 
   userInfo: any
-  userId: any
-  userToken: any
+  userId = sessionStorage.getItem("userId")
+  userToken = sessionStorage.getItem("token")
 
   //this url works for browser requests
   baseUrl: string = "http://localhost:3000/api/appUsers"
 
   //this url works for dev app requests at home
-  advancedBaseUrl: string = "http://192.168.1.179:3000/api/appUsers"
+  baseUrlHome: string = "http://192.168.1.179:3000/api/appUsers"
 
   //this url works for dev app requests at Learn
   baseUrlLearn: string = "http://192.168.35.101:3000/api/appUsers"
@@ -67,19 +67,19 @@ export class AuthGuardService implements CanActivate {
   }
 
   register(userData) {
-    return this.ngHttp.post(`${this.baseUrlLearn}`, userData)
+    return this.ngHttp.post(`${this.baseUrlHome}`, userData)
   }
 
   login(userData) {
-    return this.ngHttp.post(`${this.baseUrlLearn}/login`, userData)
+    return this.ngHttp.post(`${this.baseUrlHome}/login`, userData)
   }
 
   logout(token) {
-    return this.ngHttp.post(`${this.advancedBaseUrl}/logout?access_token=${token}`, token)
+    return this.ngHttp.post(`${this.baseUrlHome}/logout?access_token=${token}`, token)
   }
 
   getUserInfo(userInfo) {
-    return this.ngHttp.get(`${this.baseUrlLearn}/${userInfo.userId}?access_token=${userInfo.token}`)
+    return this.ngHttp.get(`${this.baseUrlHome}/${userInfo.userId}?access_token=${userInfo.token}`)
   }
 
   clearUserInfo() {
@@ -90,15 +90,15 @@ export class AuthGuardService implements CanActivate {
       password: "",
       authenticated: false,
     }
-    this.userInfo = ""
-    this.userId = ""
-    this.userToken = ""
+    delete this.userInfo
+    delete this.userId
+    delete this.userToken
     sessionStorage.clear()
     this.storage.clear()
   }
 
   //This request is for using the advanced http cordova plugin
   loginAdvanced(userData) {
-    return this.HTTP.post(`${this.advancedBaseUrl}/login`, {data: userData}, {authorization: "login: token"})
+    return this.HTTP.post(`${this.baseUrlHome}/login`, {data: userData}, {authorization: "login: token"})
   }
 }

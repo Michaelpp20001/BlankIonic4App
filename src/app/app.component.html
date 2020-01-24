@@ -14,8 +14,8 @@
             </ion-item>
           </ion-menu-toggle>
           <ion-menu-toggle auto-hide="true">
-            <ion-item *ngIf="this.authService.authInfo.authenticated === true" class="logoutButton" lines="none">
-              <ion-button expand="block" fill="outline" slot="end" (click)="onLogout(this.authService.userToken)">Logout</ion-button>
+            <ion-item *ngIf="this.authGuard.authInfo.authenticated === true" class="logoutButton" lines="none">
+              <ion-button expand="block" fill="outline" slot="end" (click)="onLogout(this.authGuard.userToken)">Logout</ion-button>
             </ion-item>
           </ion-menu-toggle>
           </ion-list>
