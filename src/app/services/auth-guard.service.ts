@@ -44,11 +44,11 @@ export class AuthGuardService implements CanActivate {
   //this url works for dev app requests at SoftStack offices 5G
   baseUrlSoftStack5G: string = "http://192.168.0.124:3000/api/appUsers"
 
-  async presentAlert() {
+  async presentAlert(route) {
     const alert = await this.alertController.create({
-      header: 'Access Denied',
+      header: `Access Denied to ${route.routeConfig.path} page`,
       subHeader: 'Please Login',
-      message: 'Full use of this application is only available for users that have registered and logged in.',
+      message: "This application's full features available upon log in",
       buttons: ['OK']
     });
 
@@ -57,13 +57,14 @@ export class AuthGuardService implements CanActivate {
 
   //Activated route logic, only home route is activated for a logged in user, check app routing module
   canActivate(route: ActivatedRouteSnapshot): boolean {
-    console.log(route);
     if (!this.authInfo.authenticated) {
+      console.log(`Denied access to ${route.routeConfig.path} page`);
       this.router.navigate(["login"]);
-      this.presentAlert();
+      this.presentAlert(route);
       return false;
+    } else {
+      return true;
     }
-    return true;
   }
 
   register(userData) {
