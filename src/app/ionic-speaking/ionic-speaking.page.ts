@@ -26,6 +26,6 @@ export class IonicSpeakingPage implements OnInit {
       rate: this.range
   })
     .then(() => console.log('Success'))
-    .catch((reason: any) => console.log(reason));
+    .catch((reason: any) => console.log("error", reason));
   }
 }

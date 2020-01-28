@@ -35,8 +35,8 @@ export class RegisterPage implements OnInit {
         this.storage.set("token", this.authGuard.userInfo.userId)
         
         //setting user id and token to a variable programmatically for use later
-        this.authGuard.userId = this.authGuard.userInfo.userId
-        this.authGuard.userToken = this.authGuard.userInfo.token
+        this.authGuard.userId = sessionStorage.getItem("userId")
+        this.authGuard.userToken = sessionStorage.getItem("token")
 
         console.log("User Authenticated Info",this.authGuard.userInfo);
         this.router.navigate(['/home']);

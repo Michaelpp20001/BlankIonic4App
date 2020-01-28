@@ -26,8 +26,8 @@ export class AuthGuardService implements CanActivate {
   }
 
   userInfo: any
-  userId = sessionStorage.getItem("userId")
-  userToken = sessionStorage.getItem("token")
+  userId: any
+  userToken: any
 
   //this url works for browser requests
   baseUrl: string = "http://localhost:3000/api/appUsers"
