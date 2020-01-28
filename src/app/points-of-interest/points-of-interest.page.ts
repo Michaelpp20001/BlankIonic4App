@@ -10,7 +10,7 @@ declare var google;
 })
 export class PointsOfInterestPage implements OnInit {
 
-  @ViewChild('map') mapElement: ElementRef;
+  @ViewChild('map', {static: true}) mapElement: ElementRef;
   map: any
 
   constructor(
@@ -23,7 +23,7 @@ export class PointsOfInterestPage implements OnInit {
 
   loadMap(){
 
-    let latLng = new google.maps.LatLng(-34.9290, 138.6010);
+    let latLng = new google.maps.LatLng(32.746702299999995, -117.05977409999998);
 
     let mapOptions = {
       center: latLng,
