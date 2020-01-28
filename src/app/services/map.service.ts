@@ -21,4 +21,6 @@ export class MapService {
      console.log('Error getting location', error);
    });
   }
+
+  
 }
