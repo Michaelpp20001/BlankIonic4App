@@ -4,18 +4,25 @@
           <ion-menu-button autoHide=false></ion-menu-button>
       </ion-buttons>
       <ion-title>
-        My Ionic4 Demo App
+        My Ionic 4 Demo App
       </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content color="light">
   <ion-card>
-
+    <img src="../../assets/SoftStack_passion.jfif">
+    <ion-card-header *ngIf="this.authGuard.userInfo" color="tertiary">
+      <ion-card-title><span>Welcome, {{this.authGuard.userInfo.firstName}}!</span></ion-card-title>
+    </ion-card-header>
   </ion-card>
-  <div class="ion-padding">
-    <p *ngIf="this.authGuard.userInfo">Welcome, {{this.authGuard.userInfo.firstName}}!</p>
-    <p>This is a blank app, learning router basics with Ionic 4</p>
-  </div>
+  <ion-card color="tertiary">
+    <img src="../../assets/ionic4_angular.jpg">
+    <ion-card-content>
+      <span>Using Ionic 4 and Angular Frameworks, I have created a Demo Application that explores all the content of SoftStack Factory's Ionic 4 Hybrid Mobile web developement course</span>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+  </ion-card>
   <p>If you want to know more <a routerLink='/about' (click)="myInfo()" routerDirection="forward">about this app</a> click me</p>
 </ion-content>
