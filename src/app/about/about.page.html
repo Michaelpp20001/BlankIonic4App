@@ -3,31 +3,68 @@
       <ion-buttons slot="start">
           <ion-menu-button autoHide=false menuId="first"></ion-menu-button>
       </ion-buttons>
-    <ion-title>About</ion-title>
+    <ion-title>Ionic 4 Grid</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-<div class="ion-padding">
-  <p>This is just an example of a simple about page and routing</p>
-  <p>Below is an example of Ionic 4 responsive grid, turn your phone to landscape, or change your browser size for some cool tricks!</p>
-</div>
-<ion-grid class="basic-grid ion-padding">
-  <ion-row class="basic-row ion-padding">
-    <ion-col class="basic-column ion-padding" size-xs="12" size-sm="6" size-m="4" size-l="4" size-xl="3">
-      column 1
-    </ion-col>
-    <ion-col class="basic-column2 ion-padding" size-xs="12" size-sm="6" size-m="4" size-l="4" size-xl="3">
-      column 2
-    </ion-col>
-    <ion-col class="basic-column3 ion-padding" size-xs="12" size-sm="6" size-m="4" size-l="4" size-xl="3">
-      column 3
-    </ion-col>
-    <ion-col class="basic-column4 ion-padding" size-xs="12" size-sm="6" size-m="4" size-l="4" size-xl="3">
-      column 4
-    </ion-col>
-  </ion-row>
-</ion-grid>
+<ion-content color="light">
+  <ion-card color="tertiary">
+    <img src="../../assets/web-design-responsive.png">
+    <ion-card-header>
+      <ion-card-title>
+        <span>Responsive Design</span>
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <span>Ionic 4 responsive grid, turn your phone to landscape, or change your browser size to see the example grid change based on screen size</span>
+    </ion-card-content>
+  </ion-card>
+  <ion-card color="tertiary">
+    <ion-list>
+      <ion-item>
+        <ion-label>
+          <h2>Card</h2>
+          <p>Ion Card is the white border</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <h2>Grid</h2>
+          <p>Ion Grid is the black border</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <h2>Row</h2>
+          <p>Ion Row is the gray border</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <h2>Column</h2>
+          <p>Ion Col are different colors</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+    <ion-card-content>
+      <ion-grid class="basic-grid ion-padding">
+        <ion-row class="basic-row ion-padding">
+          <ion-col class="basic-column ion-padding" size-xs="12" size-sm="6" size-m="4" size-l="4" size-xl="3">
+            <p>column 1</p>
+          </ion-col>
+          <ion-col class="basic-column2 ion-padding" size-xs="12" size-sm="6" size-m="4" size-l="4" size-xl="3">
+            <p>column 2</p>
+          </ion-col>
+          <ion-col class="basic-column3 ion-padding" size-xs="12" size-sm="6" size-m="4" size-l="4" size-xl="3">
+            <p>column 3</p>
+          </ion-col>
+          <ion-col class="basic-column4 ion-padding" size-xs="12" size-sm="6" size-m="4" size-l="4" size-xl="3">
+            <p>column 4</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
 <ion-grid>
   <ion-row>
     <ion-col class="ion-padding" size="6">

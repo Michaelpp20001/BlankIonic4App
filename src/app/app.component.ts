@@ -22,12 +22,12 @@ export class AppComponent {
       icon  : "home"
     },
     {
-      title : "About/Grid",
+      title : "Responsive Grid",
       url   : "/about",
-      icon  : "alert"
+      icon  : "grid"
     },
     {
-      title : "Inputs/Outputs",
+      title : "Inputs-Outputs",
       url   : "/inputs",
       icon  : "git-compare"
     },
@@ -49,7 +49,7 @@ export class AppComponent {
     {
       title : "Login",
       url   : "/login",
-      icon  : "person"
+      icon  : "finger-print"
     },
     {
       title : "Register",
