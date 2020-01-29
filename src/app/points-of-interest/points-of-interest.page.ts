@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { MapService } from '../services/map.service';
+import { PhotoGalleryPageRoutingModule } from '../photo-gallery/photo-gallery-routing.module';
 
 declare var google;
 
@@ -11,7 +12,8 @@ declare var google;
 export class PointsOfInterestPage implements OnInit {
 
   @ViewChild('map', {static: true}) mapElement: ElementRef;
-  map: any
+  map: any;
+  marker: any;
 
   constructor(
     private mapService: MapService
@@ -22,17 +24,31 @@ export class PointsOfInterestPage implements OnInit {
   }
 
   loadMap(){
-
-    let latLng = new google.maps.LatLng(32.746702299999995, -117.05977409999998);
-
-    let mapOptions = {
-      center: latLng,
-      zoom: 15,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
+    this.map = new google.maps.Map(this.mapElement.nativeElement, this.mapService.mapOptions);
+    if(this.marker) {
+      this.marker.setMap(this.map)
     }
-
-    this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
-
   }
+
+  getCurrentLocation() {
+    this.mapService.currentLocation().then((resp) => {
+
+      console.log(resp)
+
+      this.mapService.currentLatLng = new google.maps.LatLng(resp.coords.latitude, resp.coords.longitude)
+      this.mapService.mapOptions = {
+        center: this.mapService.currentLatLng,
+        zoom: 14,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      }
+      this.marker = new google.maps.Marker({
+        position: this.mapService.currentLatLng,
+        map: this.map,
+      });
+      this.loadMap()
+     }).catch((error) => {
+       console.log('Error getting location', error);
+     });
+    }
 
 }

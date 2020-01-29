@@ -13,20 +13,16 @@ export class MapService {
     private geolocation: Geolocation
   ) { }
 
-  lat: any;
-  lng: any;
+  startCoordinates = new google.maps.LatLng(32.746702299999995, -117.05977409999998);
+  currentLatLng: any;
+
+  mapOptions = {
+    center: this.startCoordinates,
+    zoom: 1,
+    mapTypeId: google.maps.MapTypeId.SATELLITE
+  }
 
   currentLocation() {
-  this.geolocation.getCurrentPosition().then((resp) => {
-
-    this.lat = resp.coords.latitude 
-    this.lng = resp.coords.longitude
-
-    console.log(resp)
-
-   }).catch((error) => {
-     console.log('Error getting location', error);
-   });
+  return this.geolocation.getCurrentPosition()
   }
-  
 }
