@@ -4,12 +4,15 @@
           <ion-menu-button autoHide=false></ion-menu-button>
       </ion-buttons>
       <ion-title>
-        My Ionic Blank learning App
+        My Ionic4 Demo App
       </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content color="light">
+  <ion-card>
+
+  </ion-card>
   <div class="ion-padding">
     <p *ngIf="this.authGuard.userInfo">Welcome, {{this.authGuard.userInfo.firstName}}!</p>
     <p>This is a blank app, learning router basics with Ionic 4</p>

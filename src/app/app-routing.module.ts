@@ -39,7 +39,8 @@ const routes: Routes = [
   },
   {
     path: 'points-of-interest',
-    loadChildren: () => import('./points-of-interest/points-of-interest.module').then( m => m.PointsOfInterestPageModule)
+    loadChildren: () => import('./points-of-interest/points-of-interest.module').then( m => m.PointsOfInterestPageModule),
+    canActivate: [AuthGuardService]
   },
 ];
 
