@@ -1,10 +1,10 @@
-<p>
-  Here is an example of passing data from parent component to a child component using @input
-</p>
-<h3>Parent:(Inputs Page)My example: {{examples}}</h3>
-<p>
-  Here is an example of using @input and @output with event emmiter to change count
-</p>
-<h3>Parent:(Inputs Page)My count: {{count}}</h3>
-<ion-button (click)="increment()">increment</ion-button>
-<ion-button (click)="decrement()">decrement</ion-button>
+  <p>Passing data from parent component to a child component using @input</p>
+  <h2>Parent:(Inputs Page)My example: <span>{{examples}}</span></h2>
+  <p>
+      Using @input and @output with event emmiter to change count
+  </p>
+  <h2>Parent:(Inputs Page)My count: <span>{{count}}</span></h2>
+  <ion-item lines="none" color="warning">
+    <ion-button (click)="increment()" fill="outline" slot="start" color="dark">increment</ion-button>
+    <ion-button (click)="decrement()" fill="outline" slot="end" color="dark">decrement</ion-button>
+  </ion-item>
