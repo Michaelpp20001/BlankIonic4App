@@ -15,6 +15,7 @@ export class PointsOfInterestPage implements OnInit {
   map: any;
   marker: any;
 
+  
   constructor(
     private mapService: MapService
   ) {}

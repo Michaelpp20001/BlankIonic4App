@@ -9,17 +9,26 @@
 
 <ion-content color="light">
   <ion-card color="tertiary">
+    <ion-grid>
   <ion-row>
-    <ion-col class="ion-padding-top ion-text-start">
+    <ion-col size="6" class="ion-padding-top ion-text-start">
       <ion-title color="dark">Google Map</ion-title>
     </ion-col>
-    <ion-col class="ion-text-end">
-      <ion-button (click)="this.getCurrentLocation()" shape="round" fill="outline">
-        <ion-icon slot="start" name="locate"></ion-icon>
-        Where I Am
+    <ion-col size="6" class="ion-text-end">
+      <ion-button (click)="this.getCurrentLocation()" fill="outline">
+        <ion-icon slot="icon-only" name="locate"></ion-icon>
+      </ion-button>
+      <ion-button (click)="this.findPlaces()" fill="outline">
+        <ion-icon slot="icon-only" name="search"></ion-icon>
       </ion-button>
     </ion-col>
   </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-searchbar enterkeyhint="search" (ionInput)="this.mapService.getSearchTerm($event)"></ion-searchbar>
+    </ion-col>
+  </ion-row>
+  </ion-grid>
   <div #map id="map"></div>
 </ion-card>
 
