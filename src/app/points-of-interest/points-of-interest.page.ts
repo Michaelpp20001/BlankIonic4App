@@ -53,10 +53,28 @@ export class PointsOfInterestPage implements OnInit {
      });
     }
 
+    getFindLocation(lat, lon) {
+      this.mapService.currentLatLng = new google.maps.LatLng(lat, lon)
+      this.mapService.mapOptions = {
+        center: this.mapService.currentLatLng,
+        zoom:14,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      }
+      this.marker = new google.maps.Marker({
+        position: this.mapService.currentLatLng,
+        map: this.map
+      });
+      this.loadMap();
+    }
+
     onFindPlaces() {
       this.mapService.findPlaces()
-      .subscribe(response => {
-        console.log("find places response", response);
+      .subscribe((res: any) => {
+        console.log("find places response", res)
+        if(res.status === "OK") {
+          let found = res.candidates[0].geometry.location;
+          this.getFindLocation(found.lat, found.lng)
+        }
       })
     }
 
