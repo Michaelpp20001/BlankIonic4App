@@ -22,6 +22,7 @@ export class PointsOfInterestPage implements OnInit {
   
   ngOnInit() {
     this.loadMap()
+    this.mapService.getCurrentLocation()
   }
 
   loadMap(){
@@ -50,6 +51,13 @@ export class PointsOfInterestPage implements OnInit {
      }).catch((error) => {
        console.log('Error getting location', error);
      });
+    }
+
+    onFindPlaces() {
+      this.mapService.findPlaces()
+      .subscribe(response => {
+        console.log("find places response", response);
+      })
     }
 
 }
