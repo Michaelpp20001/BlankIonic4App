@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { MapService } from '../services/map.service';
 import { PhotoGalleryPageRoutingModule } from '../photo-gallery/photo-gallery-routing.module';
+import { AlertController } from '@ionic/angular';
 
 declare var google;
 
@@ -17,7 +18,8 @@ export class PointsOfInterestPage implements OnInit {
 
   
   constructor(
-    private mapService: MapService
+    private mapService: MapService,
+    public alertController: AlertController
   ) {}
   
   ngOnInit() {
@@ -68,6 +70,16 @@ export class PointsOfInterestPage implements OnInit {
       this.loadMap();
     }
 
+    async presentAlert() {
+      const alert = await this.alertController.create({
+        header: 'No Search Results',
+        message: `No results for ${this.mapService.searchTerm}`,
+        buttons: ['OK']
+      });
+  
+      await alert.present();
+    }
+
     onFindPlaces() {
       this.mapService.findPlaces()
       .subscribe((res: any) => {
@@ -77,6 +89,7 @@ export class PointsOfInterestPage implements OnInit {
           let name = res.candidates[0].name;
           this.getFindLocation(found.lat, found.lng, name)
         }
+        else {this.presentAlert();}
       })
     }
 
