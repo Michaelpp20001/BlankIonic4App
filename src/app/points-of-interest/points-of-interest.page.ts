@@ -53,7 +53,7 @@ export class PointsOfInterestPage implements OnInit {
      });
     }
 
-    getFindLocation(lat, lon) {
+    getFindLocation(lat, lon, name) {
       this.mapService.currentLatLng = new google.maps.LatLng(lat, lon)
       this.mapService.mapOptions = {
         center: this.mapService.currentLatLng,
@@ -62,6 +62,7 @@ export class PointsOfInterestPage implements OnInit {
       }
       this.marker = new google.maps.Marker({
         position: this.mapService.currentLatLng,
+        label: name,
         map: this.map
       });
       this.loadMap();
@@ -73,7 +74,8 @@ export class PointsOfInterestPage implements OnInit {
         console.log("find places response", res)
         if(res.status === "OK") {
           let found = res.candidates[0].geometry.location;
-          this.getFindLocation(found.lat, found.lng)
+          let name = res.candidates[0].name;
+          this.getFindLocation(found.lat, found.lng, name)
         }
       })
     }
