@@ -24,7 +24,12 @@
         </ion-item>
     </ion-card-content>
   </ion-card>
-      <!--<ion-button (click)="loginHTTP(this.authGuard.authInfo)">Advanced HTTP Login</ion-button>-->
+  <!-- ADVANCED HTTP LOGIN <ion-button (click)="loginHTTP(this.authGuard.authInfo)">Advanced HTTP Login</ion-button>-->
+  <p *ngIf="!this.authGuard.authInfo.authenticated">
+    Quick Login:<br>
+    Email: admin@admin.com<br>
+    Password: admin
+  </p>
     <p>
       Don't have an account?
       <a routerLink='/register' routerDirection="forward">Make an account</a>
