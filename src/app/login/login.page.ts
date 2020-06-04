@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthGuardService } from '../services/auth-guard.service';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -13,8 +14,16 @@ export class LoginPage implements OnInit {
   constructor(
     public authGuard: AuthGuardService, 
     public router: Router,
-    public storage: Storage) { }
+    public storage: Storage,
+    public platform: Platform
+    ) {
+      if(this.platform.is('mobileweb') || this.platform.is('desktop')) {
+        this.buttonPlacement = "end";
+      }
+     }
+
   mustLogIn: boolean
+  buttonPlacement: string = "start"
 
   ngOnInit() {
   }

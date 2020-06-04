@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-inputs',
@@ -11,7 +12,15 @@ export class InputsPage implements OnInit {
 
   myCount: number = 0
 
-  constructor() { }
+  constructor(
+    public platform: Platform
+  ) {
+    if(this.platform.is('mobileweb') || this.platform.is('desktop')) {
+      this.buttonPlacement = "end";
+    }
+   }
+
+   buttonPlacement: string = "start";
 
   countChange(event) {
     console.log(event)

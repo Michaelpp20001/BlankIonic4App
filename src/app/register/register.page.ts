@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthGuardService } from '../services/auth-guard.service';
 import { Storage } from '@ionic/storage';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-register',
@@ -11,12 +12,18 @@ import { Storage } from '@ionic/storage';
 export class RegisterPage implements OnInit {
 
   mustRegister: boolean;
+  buttonPlacement: string = "start";
 
   constructor(
     public router: Router, 
     public authGuard: AuthGuardService, 
-    public storage: Storage
-    ) { }
+    public storage: Storage,
+    public platform: Platform
+    ) { 
+      if(this.platform.is('mobileweb') || this.platform.is('desktop')) {
+        this.buttonPlacement = "end";
+      }
+    }
 
   ngOnInit() {
   }

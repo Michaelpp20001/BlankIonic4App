@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TextToSpeech } from '@ionic-native/text-to-speech/ngx';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-ionic-speaking',
@@ -10,11 +11,16 @@ export class IonicSpeakingPage implements OnInit {
 
   constructor(
     public TTS: TextToSpeech,
-  ) { }
+    public platform: Platform
+  ) { 
+    if(this.platform.is('mobileweb') || this.platform.is('desktop')) {
+      this.buttonPlacement = "end";
+    }
+  }
 
   ngOnInit() {
   }
-
+  buttonPlacement: string = "start";
   textSentence: string
   locale: string
   range: number = .01

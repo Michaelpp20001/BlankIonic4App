@@ -14,6 +14,8 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
 
+  menuPlacement: string = "start";
+
   //Sidemenu navigation
   navigate: any = 
   [
@@ -68,6 +70,10 @@ export class AppComponent {
     private router: Router,
   ) {
     this.initializeApp();
+    console.log(this.platform.platforms())
+    if(this.platform.is('mobileweb') || this.platform.is('desktop')) {
+      this.menuPlacement = "end";
+    }
   }
 
   initializeApp() {

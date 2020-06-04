@@ -1,6 +1,6 @@
 <ion-app>
   <!-- Sidemenu -->
-    <ion-menu side="start" menuId="first" contentId="content1">
+    <ion-menu [side]="menuPlacement" menuId="first" contentId="content1">
         <ion-header>
           <ion-toolbar>
             <ion-title>Time to explore!</ion-title>
@@ -24,7 +24,8 @@
       </ion-menu>
   <ion-router-outlet id=content1></ion-router-outlet>
 
-  <!-- Tabs -->
+<!-- Tabs -->
 <app-tabs *ngIf="this.authGuard.authInfo.authenticated"></app-tabs>
+
 
 </ion-app>

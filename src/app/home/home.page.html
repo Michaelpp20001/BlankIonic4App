@@ -1,30 +1,11 @@
 <ion-header>
   <ion-toolbar>
-      <ion-buttons slot="start">
+      <ion-buttons [slot]="buttonPlacement">
           <ion-menu-button autoHide=false></ion-menu-button>
       </ion-buttons>
       <ion-title>
         My Ionic 4 Demo App
       </ion-title>
-      <ion-tabs *ngIf="this.authGuard.authInfo.authenticated">
-        <ion-tab-bar translucent="true" slot="top">
-          <ion-title>
-            My Ionic 4 Demo App
-          </ion-title>
-          <ion-tab-button tab="ionic-speaking">
-            <ion-icon name="volume-high"></ion-icon>
-            <ion-label>TTS</ion-label>
-          </ion-tab-button>
-          <ion-tab-button tab="photo-gallery">
-            <ion-icon name="camera"></ion-icon>
-            <ion-label>Photo</ion-label>
-          </ion-tab-button>
-          <ion-tab-button tab="points-of-interest">
-            <ion-icon name="pin"></ion-icon>
-            <ion-label>POI</ion-label>
-          </ion-tab-button>
-        </ion-tab-bar>
-      </ion-tabs>
   </ion-toolbar>
 </ion-header>
 
@@ -68,7 +49,7 @@
             <h2>App Features</h2>
             <p>Ionic Text to Speech</p>
             <p>Photo Gallery with Ionic Storage</p>
-            <p>Points Of Interest with Google Maps</p>
+            <p>Points of Interest with Google Maps</p>
           </ion-label>
         </ion-item>
         <ion-item>

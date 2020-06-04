@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-      <ion-buttons slot="start">
+      <ion-buttons [slot]="buttonPlacement">
           <ion-menu-button autoHide=false menuId="first"></ion-menu-button>
       </ion-buttons>
     <ion-title>Login</ion-title>
@@ -8,9 +8,6 @@
 </ion-header>
 
 <ion-content color="light">
-  <div>
-    <p>Login to My Demo App</p>
-  </div>
   <ion-card color="tertiary">
     <img src="../../assets/ionic-framework-og.png">
     <ion-card-content>

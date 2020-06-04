@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { MapService } from '../services/map.service';
-import { PhotoGalleryPageRoutingModule } from '../photo-gallery/photo-gallery-routing.module';
 import { AlertController } from '@ionic/angular';
+import { Platform } from '@ionic/angular';
 
 declare var google;
 
@@ -19,13 +19,20 @@ export class PointsOfInterestPage implements OnInit {
   
   constructor(
     private mapService: MapService,
-    public alertController: AlertController
-  ) {}
+    public alertController: AlertController,
+    public platform: Platform
+  ) {
+    if(this.platform.is('mobileweb') || this.platform.is('desktop')) {
+      this.buttonPlacement = "end";
+    }
+  }
   
   ngOnInit() {
     this.loadMap()
     this.mapService.getCurrentLocation()
   }
+
+  buttonPlacement: string = "start";
 
   loadMap(){
     this.map = new google.maps.Map(this.mapElement.nativeElement, this.mapService.mapOptions);
@@ -76,7 +83,6 @@ export class PointsOfInterestPage implements OnInit {
         message: `No results for ${this.mapService.searchTerm}`,
         buttons: ['OK']
       });
-  
       await alert.present();
     }
 
