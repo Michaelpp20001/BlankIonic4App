@@ -59,9 +59,6 @@ export class AppComponent {
     },
   ]
 
-  //Tabs Navigation
-
-
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
