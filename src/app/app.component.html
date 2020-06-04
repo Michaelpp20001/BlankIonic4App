@@ -15,7 +15,7 @@
             </ion-item>
           </ion-menu-toggle>
           <ion-menu-toggle auto-hide="true">
-            <ion-item *ngIf="this.authGuard.authInfo.authenticated === true" class="logoutButton" lines="none">
+            <ion-item *ngIf="this.authGuard.authInfo.authenticated" class="logoutButton" lines="none">
               <ion-button expand="block" fill="outline" slot="end" (click)="onLogout(this.authGuard.userToken)">Logout</ion-button>
             </ion-item>
           </ion-menu-toggle>
@@ -23,6 +23,7 @@
         </ion-content>
       </ion-menu>
   <ion-router-outlet id=content1></ion-router-outlet>
+
   <!-- Tabs -->
   <ion-tabs *ngIf="this.authGuard.authInfo.authenticated">
     <ion-tab-bar slot="bottom">
@@ -40,4 +41,5 @@
       </ion-tab-button>
     </ion-tab-bar>
   </ion-tabs>
+
 </ion-app>
