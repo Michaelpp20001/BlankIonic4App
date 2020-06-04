@@ -17,8 +17,8 @@ export class PhotoServiceService {
   public photos: Photo[] = [];
 
   constructor(
-    private camera: Camera,
-    private storage: Storage,
+    public camera: Camera,
+    public storage: Storage,
     public alertController: AlertController
     ) { }
 

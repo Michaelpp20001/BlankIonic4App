@@ -11,8 +11,8 @@ import { AlertController } from '@ionic/angular';
 export class AuthGuardService implements CanActivate {
 
   constructor(private router: Router,
-     private HTTP: HTTP, 
-     private ngHttp: HttpClient,
+     public HTTP: HTTP, 
+     public ngHttp: HttpClient,
      public storage: Storage,
      public alertController: AlertController,
      ) { }

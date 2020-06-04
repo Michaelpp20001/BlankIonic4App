@@ -11,7 +11,6 @@ import { PointsOfInterestPage } from '../../points-of-interest/points-of-interes
 })
 export class TabsComponent implements OnInit {
 
-    //Tabs Navigation
     routes: Routes = [
       {
         path: 'ionic-speaking',

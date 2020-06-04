@@ -12,9 +12,9 @@ export class MapService {
   @ViewChild('map', {static: true}) mapElement: ElementRef;
 
   constructor(
-    private geolocation: Geolocation,
-    private platform: Platform,
-    private http: HttpClient
+    public geolocation: Geolocation,
+    public platform: Platform,
+    public http: HttpClient
   ) { }
 
   API_KEY = "AIzaSyAG-gA-cCbX2qlfsAfHWxlP6vxOOf5_a8U"

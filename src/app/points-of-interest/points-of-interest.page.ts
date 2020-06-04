@@ -18,7 +18,7 @@ export class PointsOfInterestPage implements OnInit {
 
   
   constructor(
-    private mapService: MapService,
+    public mapService: MapService,
     public alertController: AlertController,
     public platform: Platform
   ) {
