@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AuthGuardService } from './services/auth-guard.service';
 import { HTTP } from '@ionic-native/http/ngx';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-root',
@@ -62,18 +63,15 @@ export class AppComponent {
   ]
 
   constructor(
-    private platform: Platform,
-    private splashScreen: SplashScreen,
-    private statusBar: StatusBar,
-    private authGuard: AuthGuardService,
-    private HTTP: HTTP,
-    private router: Router,
+    public platform: Platform,
+    public splashScreen: SplashScreen,
+    public statusBar: StatusBar,
+    public authGuard: AuthGuardService,
+    public HTTP: HTTP,
+    public router: Router,
+    public alertController: AlertController
   ) {
     this.initializeApp();
-    console.log(this.platform.platforms())
-    if(this.platform.is('mobileweb') || this.platform.is('desktop')) {
-      this.menuPlacement = "end";
-    }
   }
 
   initializeApp() {
@@ -81,7 +79,20 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       this.HTTP.setDataSerializer('json')
+      console.log(this.platform.platforms())
+      if(this.platform.is('mobileweb') || this.platform.is('desktop')) {
+        this.menuPlacement = "end";
+      }
     });
+  }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Logged Out',
+      message: 'You Are Now Logged Out of the Demo App',
+      buttons: ['Thanks']
+    });
+    await alert.present();
   }
 
   onLogout(token) {
@@ -101,7 +112,9 @@ export class AppComponent {
           "current token", this.authGuard.userToken
           )
 
-        this.router.navigate(["/login"])
+          this.presentAlert();
+
+        this.router.navigate(["login"])
     })
   }
 
