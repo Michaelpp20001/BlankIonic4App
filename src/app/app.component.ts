@@ -6,10 +6,6 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AuthGuardService } from './services/auth-guard.service';
 import { HTTP } from '@ionic-native/http/ngx';
 import { Router } from '@angular/router';
-import { Routes } from '@angular/router';
-import { IonicSpeakingPage } from './ionic-speaking/ionic-speaking.page';
-import { PhotoGalleryPage } from './photo-gallery/photo-gallery.page';
-import { PointsOfInterestPage } from './points-of-interest/points-of-interest.page';
 
 @Component({
   selector: 'app-root',
@@ -64,20 +60,7 @@ export class AppComponent {
   ]
 
   //Tabs Navigation
-  routes: Routes = [
-    {
-      path: 'ionic-speaking',
-      component: IonicSpeakingPage,
-    },
-    {
-      path: 'photo-gallery',
-      component: PhotoGalleryPage,
-    },
-    {
-      path: 'points-of-interest',
-      component: PointsOfInterestPage,
-    }
-  ];
+
 
   constructor(
     private platform: Platform,

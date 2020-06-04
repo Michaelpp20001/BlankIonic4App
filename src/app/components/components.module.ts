@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { InputComponent } from './input/input.component';
+import { TabsComponent } from './tabs/tabs.component'; 
 import { IonicModule } from '@ionic/angular';
 
 @NgModule({
@@ -7,10 +8,12 @@ import { IonicModule } from '@ionic/angular';
         IonicModule
     ],
     declarations: [
-        InputComponent
+        InputComponent,
+        TabsComponent
     ],
     exports: [
-        InputComponent
+        InputComponent,
+        TabsComponent
     ],
 })
 

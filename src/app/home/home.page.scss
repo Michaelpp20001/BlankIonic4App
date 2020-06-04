@@ -22,3 +22,11 @@ ion-list {
     padding-top: 0;
     padding-bottom: 0;
 }
+
+@media screen and (min-width: 901px) {
+    ion-card {
+        width: 50vw;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
