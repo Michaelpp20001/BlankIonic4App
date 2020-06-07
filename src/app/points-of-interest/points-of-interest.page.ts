@@ -27,9 +27,6 @@ export class PointsOfInterestPage implements OnInit {
     if(this.platform.is('mobileweb') || this.platform.is('desktop')) {
       this.buttonPlacement = "end";
     }
-    if(this.env.enableDebug) {
-      console.log(this.env.API_KEY);
-    }
   }
   
   ngOnInit() {

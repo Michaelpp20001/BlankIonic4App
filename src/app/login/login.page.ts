@@ -3,6 +3,7 @@ import { AuthGuardService } from '../services/auth-guard.service';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { Platform } from '@ionic/angular';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,8 @@ export class LoginPage implements OnInit {
     public authGuard: AuthGuardService, 
     public router: Router,
     public storage: Storage,
-    public platform: Platform
+    public platform: Platform,
+    public loaderController: LoadingController,
     ) {
       if(this.platform.is('mobileweb') || this.platform.is('desktop')) {
         this.buttonPlacement = "end";
@@ -28,8 +30,20 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
+  async presentLoading() {
+    const loading = await this.loaderController.create({
+      message: 'Logging In...',
+    });
+    await loading.present();
+
+    const { role, data } = await loading.onDidDismiss();
+    console.log('Loading dismissed!');
+  }
+
+
   login(loginData) {
     if(this.authGuard.authInfo.email && this.authGuard.authInfo.password) {
+      this.presentLoading();
       this.authGuard.authInfo.authenticated = true;
       this.authGuard.login(loginData)
       .subscribe(loginData => {
@@ -58,6 +72,7 @@ export class LoginPage implements OnInit {
           this.authGuard.userInfo = userData;
           console.log("User Authenticated Info", this.authGuard.userInfo);
         })
+        this.loaderController.dismiss();
         this.router.navigate(['/home']);
       });
     } else {
