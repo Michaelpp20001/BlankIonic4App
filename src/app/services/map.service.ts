@@ -59,9 +59,9 @@ export class MapService {
   return this.geolocation.getCurrentPosition()
   }
 
-  findPlaces() {
+  findPlaces(key) {
     console.log("Search for", this.searchTerm)
     console.log("My current location", this.reqLat, this.reqLon)
-    return this.http.get(`${this.proxyUrl}${this.findUrl}input=${this.searchTerm}&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&locationbias=circle:6000@${this.reqLat},${this.reqLon}&key=${this.API_KEY}`)
+    return this.http.get(`${this.proxyUrl}${this.findUrl}input=${this.searchTerm}&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&locationbias=circle:6000@${this.reqLat},${this.reqLon}&key=${key}`)
   }
 }

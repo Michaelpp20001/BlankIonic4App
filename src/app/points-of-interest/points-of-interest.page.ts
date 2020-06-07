@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { MapService } from '../services/map.service';
 import { AlertController } from '@ionic/angular';
 import { Platform } from '@ionic/angular';
+import { EnvService } from "../services/env.service";
 
 declare var google;
 
@@ -20,10 +21,14 @@ export class PointsOfInterestPage implements OnInit {
   constructor(
     public mapService: MapService,
     public alertController: AlertController,
-    public platform: Platform
+    public platform: Platform,
+    public env: EnvService,
   ) {
     if(this.platform.is('mobileweb') || this.platform.is('desktop')) {
       this.buttonPlacement = "end";
+    }
+    if(this.env.enableDebug) {
+      console.log(this.env.API_KEY);
     }
   }
   
@@ -87,7 +92,7 @@ export class PointsOfInterestPage implements OnInit {
     }
 
     onFindPlaces() {
-      this.mapService.findPlaces()
+      this.mapService.findPlaces(this.env.API_KEY)
       .subscribe((res: any) => {
         console.log("find places response", res)
         if(res.status === "OK") {

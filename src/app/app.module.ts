@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
+import { EnvServiceProvider } from './services/env.service.provider';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -28,6 +29,7 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
     ComponentsModule,
     IonicModule.forRoot(), AppRoutingModule],
   providers: [
+    EnvServiceProvider,
     HTTP,
     StatusBar,
     SplashScreen,
