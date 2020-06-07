@@ -29,20 +29,7 @@ export class AuthGuardService implements CanActivate {
   userId: any
   userToken: any
 
-  //this url works for browser requests
-  baseUrl: string = "http://localhost:3000/api/appUsers"
-
-  //this url works for dev app requests at home
-  baseUrlHome: string = "http://192.168.1.179:3000/api/appUsers"
-
-  //this url works for dev app requests at Learn
-  baseUrlLearn: string = "http://192.168.35.101:3000/api/appUsers"
-
-  //this url works for dev app requests at SoftStack offices
-  baseUrlSoftStack: string = "http://192.168.0.109:3000/api/appUsers"
-
-  //this url works for dev app requests at SoftStack offices 5G
-  baseUrlSoftStack5G: string = "http://192.168.0.124:3000/api/appUsers"
+  baseHerokuUrl: string = "https://damp-coast-01431.herokuapp.com/api/appUsers"
 
   async presentAlert(route) {
     const alert = await this.alertController.create({
@@ -68,19 +55,19 @@ export class AuthGuardService implements CanActivate {
   }
 
   register(userData) {
-    return this.ngHttp.post(`${this.baseUrlHome}`, userData)
+    return this.ngHttp.post(`${this.baseHerokuUrl}`, userData)
   }
 
   login(userData) {
-    return this.ngHttp.post(`${this.baseUrlHome}/login`, userData)
+    return this.ngHttp.post(`${this.baseHerokuUrl}/login`, userData)
   }
 
   logout(token) {
-    return this.ngHttp.post(`${this.baseUrlHome}/logout?access_token=${token}`, token)
+    return this.ngHttp.post(`${this.baseHerokuUrl}/logout?access_token=${token}`, token)
   }
 
   getUserInfo(userInfo) {
-    return this.ngHttp.get(`${this.baseUrlHome}/${userInfo.userId}?access_token=${userInfo.token}`)
+    return this.ngHttp.get(`${this.baseHerokuUrl}/${userInfo.userId}?access_token=${userInfo.token}`)
   }
 
   clearUserInfo() {
@@ -100,6 +87,6 @@ export class AuthGuardService implements CanActivate {
 
   //This request is for using the advanced http cordova plugin
   loginAdvanced(userData) {
-    return this.HTTP.post(`${this.baseUrlHome}/login`, {data: userData}, {authorization: "login: token"})
+    return this.HTTP.post(`${this.baseHerokuUrl}/login`, {data: userData}, {authorization: "login: token"})
   }
 }
