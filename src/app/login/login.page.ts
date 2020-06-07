@@ -95,6 +95,7 @@ export class LoginPage implements OnInit {
       });
     } else {
       this.loaderController.dismiss();
+      this.presentAlert();
       this.mustLogIn = true;
     }
   }
