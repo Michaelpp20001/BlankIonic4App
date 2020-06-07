@@ -3,6 +3,7 @@ import { MapService } from '../services/map.service';
 import { AlertController } from '@ionic/angular';
 import { Platform } from '@ionic/angular';
 import { EnvService } from "../services/env.service";
+import { LoadingController } from '@ionic/angular';
 
 declare var google;
 
@@ -23,6 +24,7 @@ export class PointsOfInterestPage implements OnInit {
     public alertController: AlertController,
     public platform: Platform,
     public env: EnvService,
+    public loaderController: LoadingController,
   ) {
     if(this.platform.is('mobileweb') || this.platform.is('desktop')) {
       this.buttonPlacement = "end";
@@ -35,6 +37,16 @@ export class PointsOfInterestPage implements OnInit {
   }
 
   buttonPlacement: string = "start";
+
+  async presentLoading() {
+    const loading = await this.loaderController.create({
+      message: 'Please wait...',
+    });
+    await loading.present();
+
+    const { role, data } = await loading.onDidDismiss();
+    console.log('Loading dismissed!');
+  }
 
   loadMap(){
     this.map = new google.maps.Map(this.mapElement.nativeElement, this.mapService.mapOptions);
@@ -89,6 +101,7 @@ export class PointsOfInterestPage implements OnInit {
     }
 
     onFindPlaces() {
+      this.presentLoading();
       this.mapService.findPlaces(this.env.API_KEY)
       .subscribe((res: any) => {
         console.log("find places response", res)
@@ -96,8 +109,12 @@ export class PointsOfInterestPage implements OnInit {
           let found = res.candidates[0].geometry.location;
           let name = res.candidates[0].name;
           this.getFindLocation(found.lat, found.lng, name)
+          this.loaderController.dismiss();
         }
-        else {this.presentAlert();}
+        else {
+          this.loaderController.dismiss();
+          this.presentAlert();
+        }
       })
     }
 

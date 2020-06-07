@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { Platform } from '@ionic/angular';
 import { LoadingController } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -18,6 +19,7 @@ export class LoginPage implements OnInit {
     public storage: Storage,
     public platform: Platform,
     public loaderController: LoadingController,
+    public alertController: AlertController,
     ) {
       if(this.platform.is('mobileweb') || this.platform.is('desktop')) {
         this.buttonPlacement = "end";
@@ -26,18 +28,31 @@ export class LoginPage implements OnInit {
 
   mustLogIn: boolean
   buttonPlacement: string = "start"
+  error: any
 
   ngOnInit() {
   }
 
   async presentLoading() {
     const loading = await this.loaderController.create({
+      backdropDismiss: true,
       message: 'Logging In...',
     });
     await loading.present();
 
     const { role, data } = await loading.onDidDismiss();
     console.log('Loading dismissed!');
+  }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Error',
+      subHeader: 'Trouble Logging In',
+      message: 'Make sure your credentials are correct',
+      buttons: ['OK']
+    });
+
+    await alert.present();
   }
 
 
@@ -74,8 +89,12 @@ export class LoginPage implements OnInit {
         })
         this.loaderController.dismiss();
         this.router.navigate(['/home']);
+      }, error => {
+        this.loaderController.dismiss();
+        this.presentAlert();
       });
     } else {
+      this.loaderController.dismiss();
       this.mustLogIn = true;
     }
   }
