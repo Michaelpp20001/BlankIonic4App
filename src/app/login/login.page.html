@@ -3,7 +3,10 @@
       <ion-buttons [slot]="buttonPlacement">
           <ion-menu-button autoHide=false menuId="first"></ion-menu-button>
       </ion-buttons>
-    <ion-title>Login</ion-title>
+    <ion-title>
+      <!-- <img src="../../assets/ionic-light-icon.png" style="width: auto ; max-height : 3vh"> -->
+      Login
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -24,7 +27,6 @@
         </ion-item>
     </ion-card-content>
   </ion-card>
-  <!-- ADVANCED HTTP LOGIN <ion-button (click)="loginHTTP(this.authGuard.authInfo)">Advanced HTTP Login</ion-button>-->
   <p *ngIf="!this.authGuard.authInfo.authenticated">
     Quick Login:<br>
     Email: admin@admin.com<br>

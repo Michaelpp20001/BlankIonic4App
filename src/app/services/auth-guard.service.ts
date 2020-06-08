@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Router, CanActivate, ActivatedRouteSnapshot } from "@angular/router";
-import { HTTP } from '@ionic-native/http/ngx';
 import { HttpClient } from '@angular/common/http';
 import { Storage } from '@ionic/storage';
 import { AlertController } from '@ionic/angular';
@@ -11,7 +10,6 @@ import { AlertController } from '@ionic/angular';
 export class AuthGuardService implements CanActivate {
 
   constructor(private router: Router,
-     public HTTP: HTTP, 
      public ngHttp: HttpClient,
      public storage: Storage,
      public alertController: AlertController,
@@ -83,10 +81,5 @@ export class AuthGuardService implements CanActivate {
     delete this.userToken
     sessionStorage.clear()
     this.storage.clear()
-  }
-
-  //This request is for using the advanced http cordova plugin
-  loginAdvanced(userData) {
-    return this.HTTP.post(`${this.baseHerokuUrl}/login`, {data: userData}, {authorization: "login: token"})
   }
 }
