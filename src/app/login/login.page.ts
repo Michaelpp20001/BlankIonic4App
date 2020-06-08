@@ -59,7 +59,6 @@ export class LoginPage implements OnInit {
   login(loginData) {
     if(this.authGuard.authInfo.email && this.authGuard.authInfo.password) {
       this.presentLoading();
-      this.authGuard.authInfo.authenticated = true;
       this.authGuard.login(loginData)
       .subscribe(loginData => {
         this.authGuard.userInfo = loginData;
@@ -87,6 +86,7 @@ export class LoginPage implements OnInit {
           this.authGuard.userInfo = userData;
           console.log("User Authenticated Info", this.authGuard.userInfo);
         })
+        this.authGuard.authInfo.authenticated = true;
         this.loaderController.dismiss();
         this.router.navigate(['/home']);
       }, error => {
