@@ -99,32 +99,4 @@ export class LoginPage implements OnInit {
       this.mustLogIn = true;
     }
   }
-
-  loginHTTP(userData) {
-    console.log("1",userData)
-    if(this.authGuard.authInfo.email && this.authGuard.authInfo.password) {
-      this.authGuard.authInfo.authenticated = true;
-      this.authGuard.loginAdvanced(userData)
-      .then(data => {
-
-        console.log(data.status);
-        console.log(data.data); // data received by server
-        console.log(data.headers);
-
-        //this.authGuard.userInfo = data;
-        //console.log("User Authenticated Info",this.authGuard.userInfo);
-        //this.router.navigate(['/home']);
-      })
-      .catch(error => {
-
-        console.log(error.status);
-        console.log(error.error); // error message as string
-        console.log(error.headers);
-    
-      });
-    } else {
-      this.mustLogIn = true;
-    }
-  }
-
 }
