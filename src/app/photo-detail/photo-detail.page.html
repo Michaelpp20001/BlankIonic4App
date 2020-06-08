@@ -2,12 +2,14 @@
   <ion-toolbar>
     <ion-title>Photo Detail</ion-title>
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-button (click)="back()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content color="light">
   <div id="image-detail">
     <img [src]="this.photoService.photoDetail.data"/>
   </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PhotoServiceService } from '../services/photo.service'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-photo-detail',
@@ -8,9 +9,16 @@ import { PhotoServiceService } from '../services/photo.service'
 })
 export class PhotoDetailPage implements OnInit {
 
-  constructor(public photoService: PhotoServiceService) { }
+  constructor(
+    public photoService: PhotoServiceService,
+    public router: Router,
+    ) { }
 
   ngOnInit() {
+  }
+
+  back() {
+    this.router.navigate(["photo-gallery"]);
   }
 
 }
