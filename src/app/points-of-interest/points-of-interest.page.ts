@@ -56,6 +56,7 @@ export class PointsOfInterestPage implements OnInit {
   }
 
   getCurrentLocation() {
+    this.presentLoading();
     this.mapService.currentLocation().then((resp) => {
 
       console.log(resp)
@@ -70,9 +71,11 @@ export class PointsOfInterestPage implements OnInit {
         position: this.mapService.currentLatLng,
         map: this.map,
       });
-      this.loadMap()
+      this.loadMap();
+      this.loaderController.dismiss();
      }).catch((error) => {
        console.log('Error getting location', error);
+       this.loaderController.dismiss();
      });
     }
 

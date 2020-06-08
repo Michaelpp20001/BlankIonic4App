@@ -15,17 +15,25 @@
       <ion-title color="dark">Google Map</ion-title>
     </ion-col>
     <ion-col size="6" class="ion-text-end">
-      <ion-button (click)="this.getCurrentLocation()" fill="outline">
-        <ion-icon slot="icon-only" name="locate"></ion-icon>
+      <ion-button (click)="this.getCurrentLocation()" fill="clear">
+        <img src="../../assets/Maps_Pin.png" style="width: auto ; height : 100%">
+        <!-- <ion-icon slot="icon-only" name="locate"></ion-icon> -->
       </ion-button>
-      <ion-button (click)="this.onFindPlaces()" fill="outline">
+      <!-- <ion-button (click)="this.onFindPlaces()" fill="clear">
         <ion-icon slot="icon-only" name="search"></ion-icon>
-      </ion-button>
+      </ion-button> -->
     </ion-col>
   </ion-row>
   <ion-row>
     <ion-col>
-      <ion-searchbar enterkeyhint="search" (ionInput)="this.mapService.getSearchTerm($event)"></ion-searchbar>
+      <ion-toolbar>
+        <ion-buttons slot="end">
+          <ion-button (click)="this.onFindPlaces()" fill="clear">
+            <ion-icon slot="icon-only" name="search" color="primary"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+        <ion-searchbar search-icon="logo-google" inputmode="text" enterkeyhint="search" (ionInput)="this.mapService.getSearchTerm($event)"></ion-searchbar>
+      </ion-toolbar>
     </ion-col>
   </ion-row>
   </ion-grid>
