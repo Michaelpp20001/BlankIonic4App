@@ -2,15 +2,15 @@
   <!-- Sidemenu -->
     <ion-menu [side]="menuPlacement" menuId="first" contentId="content1">
         <ion-header>
-          <ion-toolbar>
+          <ion-toolbar color="primary" mode="ios">
             <ion-title>Time to explore!</ion-title>
           </ion-toolbar>
         </ion-header>
-        <ion-content>
+        <ion-content color="light">
           <ion-list>
           <ion-menu-toggle *ngFor="let pages of navigate" auto-hide="true">
             <ion-item [routerLink]="pages.url" routerDirection="forward">
-                <ion-icon [name]="pages.icon" slot="start"></ion-icon>
+                <ion-icon [name]="pages.icon" slot="start" color="primary"></ion-icon>
                    {{pages.title}} 
             </ion-item>
           </ion-menu-toggle>
