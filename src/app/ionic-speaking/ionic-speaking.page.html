@@ -9,22 +9,22 @@
 
 <ion-content color="light">
   <ion-card color="tertiary">
-    <img src="../../assets/text-to-speech-java.jpg">
+    <img src="../../assets/text_to_speech_3.jpeg">
     <ion-card-header>
       <ion-card-title><ion-text color="dark">Converts text to speech</ion-text></ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <ion-item>
         <ion-label position="stacked">What would you like to say?</ion-label>
-        <ion-input [(ngModel)]="this.textSentence" name="text"></ion-input>
+        <ion-textarea [(ngModel)]="this.textSentence" name="text"></ion-textarea>
       </ion-item>
       <ion-list>
         <ion-item>
           <ion-label>Choose Language</ion-label>
           <ion-select [(ngModel)]="this.locale" placeholder="Select One">
-            <ion-select-option value="en-US">English(United States)</ion-select-option>
-            <ion-select-option value="en-GB">English(United Kingdom)</ion-select-option>
-            <ion-select-option value="en-US_POSIX">English(United States Computer)</ion-select-option>
+            <ion-select-option value="en-US">English(US)</ion-select-option>
+            <ion-select-option value="en-GB">English(UK)</ion-select-option>
+            <ion-select-option value="en-US_POSIX">English(CPU)</ion-select-option>
             <ion-select-option value="es-ES">Spanish</ion-select-option>
             <ion-select-option value="fr-FR">French</ion-select-option>
             <ion-select-option value="it-IT">Italian</ion-select-option>
