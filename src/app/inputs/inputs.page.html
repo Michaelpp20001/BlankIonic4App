@@ -9,19 +9,20 @@
 
 <ion-content color="light">
   <ion-card color="tertiary">
-    <img src="../../assets/angular_input_output.png">
+    <img src="../../assets/Angular_inputs_3.png">
     <ion-card-header>
       <ion-card-title>
-        <span>Advanced Angular Concepts</span>
+        <span>Advanced Angular Concepts</span><br>
+        <span>@Input & @Output</span>
       </ion-card-title>
     </ion-card-header>
   </ion-card>
-  <ion-card color="warning">
+  <ion-card color="primary">
     <ion-card-header color="tertiary">
-      <ion-card-subtitle><span>Red = part of input child component</span></ion-card-subtitle>
-      <ion-card-subtitle><span>Blue = part of value on parent component</span></ion-card-subtitle>
+      <ion-card-subtitle><span>Light Blue = part of input child component</span></ion-card-subtitle>
+      <ion-card-subtitle><span>Dark Blue = part of value on parent component</span></ion-card-subtitle>
     </ion-card-header>
-    <ion-card-content color="warning">
+    <ion-card-content color="primary">
       <app-input [examples]="myExample" [count]="myCount" (change)="countChange($event)"></app-input>
     </ion-card-content>
   </ion-card>

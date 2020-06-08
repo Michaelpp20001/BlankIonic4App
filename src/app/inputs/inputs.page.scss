@@ -6,6 +6,10 @@ span {
     color: black;
 }
 
+ion-card-title {
+    text-align: center;
+}
+
 @media screen and (min-width: 901px) {
     ion-card {
         width: 60vw;
