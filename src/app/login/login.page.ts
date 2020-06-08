@@ -36,7 +36,7 @@ export class LoginPage implements OnInit {
   async presentLoading() {
     const loading = await this.loaderController.create({
       backdropDismiss: true,
-      message: 'Logging In...',
+      message: 'Please Wait, Logging In...',
     });
     await loading.present();
 
