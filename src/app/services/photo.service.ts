@@ -9,9 +9,11 @@ import { AlertController } from '@ionic/angular';
 
 class Photo {
   data: any;
+  description: any;
 }
 
 export class PhotoServiceService {
+  description: any;
   photoDetail: any;
 
   public photos: Photo[] = [];
@@ -22,15 +24,64 @@ export class PhotoServiceService {
     public alertController: AlertController
     ) { }
 
+    async presentAlertConfirm(imageData) {
+      const alert = await this.alertController.create({
+        header: 'Add Info',
+        message: 'Would you like to add a <strong>description</strong>?',
+        buttons: [
+          {
+            text: 'No',
+            role: 'cancel',
+            cssClass: 'secondary',
+            handler: () => {
+              this.description = null;
+              this.addPhoto(imageData)
+
+            }
+          }, {
+            text: 'Okay',
+            handler: () => {
+              this.presentAlertPrompt(imageData);
+            }
+          }
+        ]
+      });
+  
+      await alert.present();
+    }
+
+    async presentAlertPrompt(imageData) {
+      const alert = await this.alertController.create({
+        header: 'Add Info',
+        inputs: [
+          {
+            name: 'description',
+            type: "text",
+            placeholder: 'Description'
+          },
+        ],
+        buttons: [
+          {
+            text: 'Done',
+            handler: (data) => {
+              this.description = data.description;
+              this.addPhoto(imageData);
+            }
+          }
+        ]
+      });
+  
+      await alert.present();
+    }
+
     async presentDeleteConfirm(photo) {
       const alert = await this.alertController.create({
-        header: 'Confirm!',
+        header: 'Delete?',
         message: 'Are you sure you want to <strong>Delete</strong>?',
         buttons: [
           {
             text: 'Cancel',
             role: 'cancel',
-            cssClass: 'secondary',
             handler: (blah) => {
               console.log('Confirm Cancel: blah');
             }
@@ -47,6 +98,14 @@ export class PhotoServiceService {
       await alert.present();
     }
 
+    addPhoto(imageData) {
+    // Add new photo to gallery
+      this.photos.unshift({
+        data: 'data:image/jpeg;base64,' + imageData,
+        description: this.description
+      });
+    }
+
     takePicture() {
       const options: CameraOptions = {
         quality: 100,
@@ -57,19 +116,14 @@ export class PhotoServiceService {
       };
   
       this.camera.getPicture(options).then((imageData) => {
-        // Add new photo to gallery
-        this.photos.unshift({
-          data: 'data:image/jpeg;base64,' + imageData
-        });
-        // Save all photos for later viewing
+        this.presentAlertConfirm(imageData);
         this.set();
       }, (err) => {
-        // Handle error
         console.log("Camera issue:" + err);
       });
     }
 
-    //resets storage key and value of photos
+    //resets storage key and value of photos/saves photos
     set() {
       this.storage.set('photos', this.photos);
     }

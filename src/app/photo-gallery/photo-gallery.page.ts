@@ -14,16 +14,16 @@ export class PhotoGalleryPage  {
     public photoService: PhotoServiceService, 
     public router: Router,
     public platform: Platform
-    ) { 
+    ) {
       if(this.platform.is('mobileweb') || this.platform.is('desktop')) {
         this.buttonPlacement = "end";
       }
+      this.photoService.loadSaved();
     }
 
   buttonPlacement: string = "start";
 
   ngOnInit() {
-    this.photoService.loadSaved();
   }
 
   delete(photo) {
