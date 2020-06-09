@@ -14,10 +14,7 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
-
-  menuPlacement: string = "start";
-
-  //Sidemenu navigation
+ //Sidemenu navigation
   navigate: any = 
   [
     {
@@ -74,6 +71,9 @@ export class AppComponent {
     this.initializeApp();
   }
 
+  menuPlacement: string = "start";
+  userHasToken = this.authGuard.hasToken
+
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
@@ -116,8 +116,7 @@ export class AppComponent {
         console.log(
           "logout user post clear", this.authGuard.userInfo, 
           "current user", this.authGuard.userId, 
-          "current token", this.authGuard.userToken,
-          "open routes", this.authGuard.openRoutes
+          "current token", this.authGuard.userToken
           )
           this.router.navigate(["/login"]);
           this.presentAlert();

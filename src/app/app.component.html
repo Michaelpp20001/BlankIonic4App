@@ -23,9 +23,5 @@
         </ion-content>
       </ion-menu>
   <ion-router-outlet id="main-content"></ion-router-outlet>
-
-<!-- Tabs -->
-<app-tabs *ngIf="this.authGuard.userToken"></app-tabs>
-
-
+    <app-tabs [hasToken]="userHasToken"></app-tabs>
 </ion-app>

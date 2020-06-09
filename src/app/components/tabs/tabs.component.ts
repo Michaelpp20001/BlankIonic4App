@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Routes } from '@angular/router';
 import { IonicSpeakingPage } from '../../ionic-speaking/ionic-speaking.page';
 import { PhotoGalleryPage } from '../../photo-gallery/photo-gallery.page';
 import { PointsOfInterestPage } from '../../points-of-interest/points-of-interest.page';
+import { AuthGuardService } from '../../services/auth-guard.service';
 
 @Component({
   selector: 'app-tabs',
@@ -10,6 +11,8 @@ import { PointsOfInterestPage } from '../../points-of-interest/points-of-interes
   styleUrls: ['./tabs.component.scss'],
 })
 export class TabsComponent implements OnInit {
+
+  @Input() hasToken: boolean;
 
     routes: Routes = [
       {
@@ -26,8 +29,14 @@ export class TabsComponent implements OnInit {
       }
     ];
 
-  constructor() { }
+  constructor(
+    public authGuard: AuthGuardService
+  ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.hasToken)
+  }
+
+  
 
 }

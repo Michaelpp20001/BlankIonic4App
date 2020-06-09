@@ -18,7 +18,7 @@ export class AuthGuardService implements CanActivate {
   userInfo: any
   userId: any
   userToken: any
-  openRoutes: boolean
+  hasToken: boolean = false
 
   authInfo = {
     firstName: "",
@@ -42,7 +42,7 @@ export class AuthGuardService implements CanActivate {
 
   //Activated route logic, only home route is activated for a logged in user, check app routing module
   canActivate(route: ActivatedRouteSnapshot): boolean {
-    if (!this.openRoutes) {
+    if (!this.userToken) {
       console.log(`Denied access to ${route.routeConfig.path} page`);
       this.router.navigate(["login"]);
       this.presentAlert(route);
@@ -73,6 +73,7 @@ export class AuthGuardService implements CanActivate {
     delete this.authInfo.firstName
     delete this.authInfo.lastName
     delete this.authInfo.password
+    this.hasToken = false
   }
 
   clearUserInfo() {
