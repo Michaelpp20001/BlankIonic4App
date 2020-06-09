@@ -22,43 +22,43 @@ export class AppComponent {
   [
     {
       title : "Home",
-      url   : "/home",
+      url   : ['/home'],
       icon  : "home"
     },
     {
       title : "Responsive Grid",
-      url   : "/about",
+      url   : ['/about'],
       icon  : "grid"
     },
     {
       title : "Inputs-Outputs",
-      url   : "/inputs",
+      url   : "inputs",
       icon  : "git-compare"
     },
     {
       title : "Ionic Speaking",
-      url   : "/ionic-speaking",
+      url   : "ionic-speaking",
       icon  : "volume-high"
     },
     {
       title : "Photo Gallery",
-      url   : "/photo-gallery",
+      url   : "photo-gallery",
       icon  : "camera"
     },
     {
       title : "Points of Interest",
-      url   : "/points-of-interest",
+      url   : "points-of-interest",
       icon  : "pin"
     },
     {
       title : "Login",
-      url   : "/login",
+      url   : "login",
       icon  : "finger-print"
     },
     {
       title : "Register",
-      url   : "/register",
-      icon  : "contacts"
+      url   : "register",
+      icon  : "person-add-outline"
     },
   ]
 
@@ -110,8 +110,8 @@ export class AppComponent {
           "current user", this.authGuard.userId,
           "current token", this.authGuard.userToken
           )
-        // this.authGuard.clearUserInfo();
-        // this.authGuard.resetAuth();
+        this.authGuard.clearUserInfo();
+        this.authGuard.resetAuth();
 
         console.log(
           "logout user post clear", this.authGuard.userInfo, 
@@ -119,7 +119,7 @@ export class AppComponent {
           "current token", this.authGuard.userToken,
           "open routes", this.authGuard.openRoutes
           )
-          this.router.navigate(["login"]);
+          this.router.navigate(["/login"]);
           this.presentAlert();
     })
   }

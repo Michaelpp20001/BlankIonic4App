@@ -14,7 +14,6 @@ import { HTTP } from '@ionic-native/http/ngx';
 import { HttpClientModule } from '@angular/common/http'
 import { Camera } from '@ionic-native/camera/ngx'
 import { IonicStorageModule } from '@ionic/storage';
-import { PhotoServiceService } from './services/photo.service'
 import { TextToSpeech } from '@ionic-native/text-to-speech/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 
@@ -33,7 +32,6 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
     HTTP,
     StatusBar,
     SplashScreen,
-    PhotoServiceService,
     Camera,
     TextToSpeech,
     Geolocation,

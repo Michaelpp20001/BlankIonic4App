@@ -23,5 +23,26 @@ export class HomePage {
   myInfo() {
     console.log("Michael")
   }
+  onLogout(token) {
+    this.authGuard.logout(token).subscribe( (res: any) => {
+
+        console.log(
+          "logout user pre clear", this.authGuard.userInfo,
+          "current user", this.authGuard.userId,
+          "current token", this.authGuard.userToken
+          )
+        this.authGuard.clearUserInfo();
+        this.authGuard.resetAuth();
+
+        console.log(
+          "logout user post clear", this.authGuard.userInfo, 
+          "current user", this.authGuard.userId, 
+          "current token", this.authGuard.userToken,
+          "open routes", this.authGuard.openRoutes
+          )
+          //this.router.navigate(["/login"]);
+          //this.presentAlert();
+    })
+  }
 
 }

@@ -1,6 +1,6 @@
 <ion-app>
   <!-- Sidemenu -->
-    <ion-menu [side]="menuPlacement" menuId="first" contentId="content1">
+    <ion-menu [side]="menuPlacement" menuId="first" contentId="main-content">
         <ion-header>
           <ion-toolbar color="primary">
             <ion-title>Time to explore!</ion-title>
@@ -9,7 +9,7 @@
         <ion-content color="light">
           <ion-list>
           <ion-menu-toggle *ngFor="let pages of navigate" auto-hide="true">
-            <ion-item [routerLink]="pages.url" routerDirection="forward">
+            <ion-item [routerLink]="pages.url">
                 <ion-icon [name]="pages.icon" slot="start" color="primary"></ion-icon>
                    {{pages.title}} 
             </ion-item>
@@ -22,7 +22,7 @@
           </ion-list>
         </ion-content>
       </ion-menu>
-  <ion-router-outlet id=content1></ion-router-outlet>
+  <ion-router-outlet id="main-content"></ion-router-outlet>
 
 <!-- Tabs -->
 <app-tabs *ngIf="this.authGuard.userToken"></app-tabs>

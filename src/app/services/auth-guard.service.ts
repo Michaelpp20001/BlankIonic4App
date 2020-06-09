@@ -69,9 +69,9 @@ export class AuthGuardService implements CanActivate {
   }
 
   resetAuth() {
+    delete this.authInfo.email
     delete this.authInfo.firstName
     delete this.authInfo.lastName
-    delete this.authInfo.email
     delete this.authInfo.password
   }
 

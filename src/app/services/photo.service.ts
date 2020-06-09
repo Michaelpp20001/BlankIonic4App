@@ -13,16 +13,17 @@ class Photo {
 }
 
 export class PhotoServiceService {
+
+  constructor(
+    public camera: Camera, 
+    public storage: Storage,
+    public alertController: AlertController
+    ) { }
+
   description: any;
   photoDetail: any;
 
   public photos: Photo[] = [];
-
-  constructor(
-    public camera: Camera,
-    public storage: Storage,
-    public alertController: AlertController
-    ) { }
 
     async presentAlertConfirm(imageData) {
       const alert = await this.alertController.create({

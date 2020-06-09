@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PhotoServiceService } from '../services/photo.service';
+import { PhotoServiceService} from '../services/photo.service';
 import { Router } from '@angular/router';
 import { Platform } from '@ionic/angular';
 
