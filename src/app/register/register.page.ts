@@ -13,7 +13,6 @@ import { AlertController } from '@ionic/angular';
 })
 export class RegisterPage implements OnInit {
 
-  mustRegister: boolean;
   buttonPlacement: string = "start";
 
   constructor(
@@ -84,7 +83,6 @@ export class RegisterPage implements OnInit {
     } else {
       this.loaderController.dismiss();
       this.presentAlert();
-      this.mustRegister = true;
     }
   }
 

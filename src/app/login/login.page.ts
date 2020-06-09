@@ -26,7 +26,6 @@ export class LoginPage implements OnInit {
       }
      }
 
-  mustLogIn: boolean
   buttonPlacement: string = "start"
   error: any
 
@@ -97,7 +96,6 @@ export class LoginPage implements OnInit {
     } else {
       this.loaderController.dismiss();
       this.presentAlert();
-      this.mustLogIn = true;
     }
   }
 }

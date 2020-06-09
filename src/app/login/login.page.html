@@ -47,9 +47,8 @@
     Email: admin@admin.com<br>
     Password: admin
   </p>
-    <p>
+    <p id="bottom-p">
       Don't have an account?
       <a routerLink='/register' routerDirection="forward">Make an account</a>
     </p>
-    <p *ngIf="mustLogIn === true">Please log in to proceed, p.s. because I have a guarded route!</p>
 </ion-content>

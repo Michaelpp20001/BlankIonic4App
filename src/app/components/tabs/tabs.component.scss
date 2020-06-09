@@ -1,10 +1,13 @@
-.hide {
-    display: none;
-}
-
-.show {
-    display: block;
-}
+ion-tab-bar.my-custom-tab-bar{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    --background: rgba(255,255,255,0.5);
+  
+    ion-tab-button {
+      --background: transparent;
+    }
+  }
 
 @media screen and (min-width: 900px) {
     #tabs {
