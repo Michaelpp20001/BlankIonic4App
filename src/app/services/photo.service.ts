@@ -3,14 +3,14 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { Storage } from '@ionic/storage';
 import { AlertController } from '@ionic/angular';
 
-@Injectable({
-  providedIn: 'root'
-})
-
 class Photo {
   data: any;
   description: any;
 }
+
+@Injectable({
+  providedIn: 'root'
+})
 
 export class PhotoServiceService {
 

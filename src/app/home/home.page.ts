@@ -37,8 +37,7 @@ export class HomePage {
         console.log(
           "logout user post clear", this.authGuard.userInfo, 
           "current user", this.authGuard.userId, 
-          "current token", this.authGuard.userToken,
-          "open routes", this.authGuard.openRoutes
+          "current token", this.authGuard.userToken
           )
           //this.router.navigate(["/login"]);
           //this.presentAlert();
