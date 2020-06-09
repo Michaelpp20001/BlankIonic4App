@@ -38,7 +38,6 @@ export class RegisterPage implements OnInit {
       message: 'Registering...',
     });
     await loading.present();
-
     const { role, data } = await loading.onDidDismiss();
     console.log('Loading dismissed!');
   }
@@ -50,8 +49,11 @@ export class RegisterPage implements OnInit {
       message: 'Make sure your credentials are correct',
       buttons: ['OK']
     });
-
     await alert.present();
+  }
+
+  moveFocus(nextElement) {
+    nextElement.setFocus();
   }
 
   register(registerData) {

@@ -30,8 +30,7 @@ export class LoginPage implements OnInit {
   buttonPlacement: string = "start"
   error: any
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   async presentLoading() {
     const loading = await this.loaderController.create({
@@ -39,7 +38,6 @@ export class LoginPage implements OnInit {
       message: 'Please Wait, Logging In...',
     });
     await loading.present();
-
     const { role, data } = await loading.onDidDismiss();
     console.log('Loading dismissed!');
   }
@@ -51,8 +49,11 @@ export class LoginPage implements OnInit {
       message: 'Make sure your credentials are correct',
       buttons: ['OK']
     });
-
     await alert.present();
+  }
+
+  moveFocus(nextElement) {
+    nextElement.setFocus();
   }
 
 

@@ -18,7 +18,8 @@
               name="firstName"
               clearInput="true"
               enterkeyhint="next"
-              inputmode="text">
+              inputmode="text"
+              (keyup.enter)="moveFocus(b)">
           </ion-input>
           </ion-item>
           <ion-item>
@@ -27,8 +28,10 @@
               [(ngModel)]="this.authGuard.authInfo.lastName"
               name="lastName"
               clearInput="true"
+              #b
               enterkeyhint="next"
-              inputmode="text">
+              inputmode="text"
+              (keyup.enter)="moveFocus(c)">
             </ion-input>
           </ion-item>
           <ion-item>
@@ -37,8 +40,10 @@
               [(ngModel)]="this.authGuard.authInfo.email" 
               name="email"
               clearInput="true"
+              #c
               enterkeyhint="next"
-              inputmode="email">
+              inputmode="email"
+              (keyup.enter)="moveFocus(d)">
             </ion-input>
           </ion-item>
           <ion-item>
@@ -47,7 +52,9 @@
                 [(ngModel)]="this.authGuard.authInfo.password" 
                 type="password"
                 clearInput="true"
-                enterkeyhint="go">
+                #d
+                enterkeyhint="go"
+                (keyup.enter)="register(this.authGuard.authInfo)">
               </ion-input>
             </ion-item>
             <ion-item lines="none">

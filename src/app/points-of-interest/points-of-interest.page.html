@@ -32,7 +32,13 @@
             <ion-icon slot="icon-only" name="search" color="primary"></ion-icon>
           </ion-button>
         </ion-buttons>
-        <ion-searchbar search-icon="logo-google" inputmode="text" enterkeyhint="search" (ionInput)="this.mapService.getSearchTerm($event)"></ion-searchbar>
+        <ion-searchbar 
+          search-icon="logo-google" 
+          inputmode="search" 
+          enterkeyhint="search"
+          (keyup.enter)="this.onFindPlaces()"
+          (ionInput)="this.mapService.getSearchTerm($event)">
+        </ion-searchbar>
       </ion-toolbar>
     </ion-col>
   </ion-row>
