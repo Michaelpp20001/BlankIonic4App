@@ -23,6 +23,15 @@ ion-list {
     padding-bottom: 0;
 }
 
+img {
+    width: 100%;
+    height: auto;
+}
+
+ion-content{
+    --background: url('../../assets/abstract-white-triangle-shapes-background_1035-17544.jpg') no-repeat center center / cover;
+}
+
 @media screen and (min-width: 900px) {
     ion-card {
         width: 60vw;

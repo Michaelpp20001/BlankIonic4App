@@ -6,6 +6,15 @@ span {
     color: black;
 }
 
+img {
+    width: 100%;
+    height: auto;
+}
+
+ion-content{
+    --background: url('../../assets/abstract-white-triangle-shapes-background_1035-17544.jpg') no-repeat center center / cover;
+}
+
 ion-card-title {
     text-align: center;
 }
