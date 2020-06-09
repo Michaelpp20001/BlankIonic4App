@@ -40,6 +40,7 @@ export class PointsOfInterestPage implements OnInit {
 
   async presentLoading() {
     const loading = await this.loaderController.create({
+      backdropDismiss: true,
       message: 'Please wait...',
     });
     await loading.present();

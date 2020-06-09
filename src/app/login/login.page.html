@@ -16,11 +16,23 @@
     <ion-card-content>
       <ion-item>
         <ion-label position="stacked">Email <ion-text color="danger">*</ion-text></ion-label>
-        <ion-input [(ngModel)]="this.authGuard.authInfo.email" name="email"></ion-input>
+        <ion-input 
+          [(ngModel)]="this.authGuard.authInfo.email" 
+          name="email" 
+          clearInput="true"
+          enterkeyhint="next"
+          inputmode="email"
+          >
+        </ion-input>
       </ion-item>
       <ion-item>
           <ion-label position="stacked">Password <ion-text color="danger">*</ion-text></ion-label>
-          <ion-input [(ngModel)]="this.authGuard.authInfo.password" type="password"></ion-input>
+          <ion-input 
+            [(ngModel)]="this.authGuard.authInfo.password" 
+            type="password"
+            clearInput="true"
+            enterkeyhint="go">
+          </ion-input>
         </ion-item>
         <ion-item lines="none">
           <ion-button (click)="login(this.authGuard.authInfo)" fill="outline" slot="end">Login</ion-button>

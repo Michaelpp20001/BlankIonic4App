@@ -72,7 +72,7 @@ export class RegisterPage implements OnInit {
         this.authGuard.userToken = sessionStorage.getItem("token")
 
         console.log("User Authenticated Info",this.authGuard.userInfo);
-        this.authGuard.hasToken = true;
+        this.authGuard.resetAuth();
         this.loaderController.dismiss();
         this.router.navigate(['/home']);
       }, error => {
