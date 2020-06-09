@@ -86,7 +86,7 @@ export class LoginPage implements OnInit {
           this.authGuard.userInfo = userData;
           console.log("User Authenticated Info", this.authGuard.userInfo);
         })
-        this.authGuard.authInfo.authenticated = true;
+        this.authGuard.openRoutes = true;
         this.loaderController.dismiss();
         this.router.navigate(['/home']);
       }, error => {

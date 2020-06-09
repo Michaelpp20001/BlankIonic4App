@@ -2,7 +2,7 @@
   <!-- Sidemenu -->
     <ion-menu [side]="menuPlacement" menuId="first" contentId="content1">
         <ion-header>
-          <ion-toolbar color="primary" mode="ios">
+          <ion-toolbar color="primary">
             <ion-title>Time to explore!</ion-title>
           </ion-toolbar>
         </ion-header>
@@ -15,7 +15,7 @@
             </ion-item>
           </ion-menu-toggle>
           <ion-menu-toggle auto-hide="true">
-            <ion-item *ngIf="this.authGuard.authInfo.authenticated" class="logoutButton" lines="none">
+            <ion-item *ngIf="this.authGuard.userToken" class="logoutButton" lines="none">
               <ion-button expand="block" fill="outline" slot="end" (click)="onLogout(this.authGuard.userToken)">Logout</ion-button>
             </ion-item>
           </ion-menu-toggle>
@@ -25,7 +25,7 @@
   <ion-router-outlet id=content1></ion-router-outlet>
 
 <!-- Tabs -->
-<app-tabs *ngIf="this.authGuard.authInfo.authenticated"></app-tabs>
+<app-tabs *ngIf="this.authGuard.userToken"></app-tabs>
 
 
 </ion-app>

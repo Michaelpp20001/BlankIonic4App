@@ -15,17 +15,17 @@ export class AuthGuardService implements CanActivate {
      public alertController: AlertController,
      ) { }
 
+  userInfo: any
+  userId: any
+  userToken: any
+  openRoutes: boolean
+
   authInfo = {
     firstName: "",
     lastName: "",
     email: "",
     password: "",
-    authenticated: false,
   }
-
-  userInfo: any
-  userId: any
-  userToken: any
 
   baseHerokuUrl: string = "https://damp-coast-01431.herokuapp.com/api/appUsers"
 
@@ -42,7 +42,7 @@ export class AuthGuardService implements CanActivate {
 
   //Activated route logic, only home route is activated for a logged in user, check app routing module
   canActivate(route: ActivatedRouteSnapshot): boolean {
-    if (!this.authInfo.authenticated) {
+    if (!this.openRoutes) {
       console.log(`Denied access to ${route.routeConfig.path} page`);
       this.router.navigate(["login"]);
       this.presentAlert(route);
@@ -68,14 +68,14 @@ export class AuthGuardService implements CanActivate {
     return this.ngHttp.get(`${this.baseHerokuUrl}/${userInfo.userId}?access_token=${userInfo.token}`)
   }
 
+  resetAuth() {
+    delete this.authInfo.firstName
+    delete this.authInfo.lastName
+    delete this.authInfo.email
+    delete this.authInfo.password
+  }
+
   clearUserInfo() {
-    this.authInfo = {
-      firstName: "",
-      lastName: "",
-      email: "",
-      password: "",
-      authenticated: false,
-    }
     delete this.userInfo
     delete this.userId
     delete this.userToken

@@ -27,7 +27,7 @@
         </ion-item>
     </ion-card-content>
   </ion-card>
-  <p *ngIf="!this.authGuard.authInfo.authenticated">
+  <p *ngIf="!this.authGuard.userToken">
     Quick Login:<br>
     Email: admin@admin.com<br>
     Password: admin

@@ -57,7 +57,6 @@ export class RegisterPage implements OnInit {
   register(registerData) {
     if(this.authGuard.authInfo.firstName && this.authGuard.authInfo.lastName && this.authGuard.authInfo.email && this.authGuard.authInfo.password) {
       this.presentLoading();
-      this.authGuard.authInfo.authenticated = true;
       this.authGuard.register(registerData)
       .subscribe(userData => {
         this.authGuard.userInfo = userData;
@@ -73,6 +72,7 @@ export class RegisterPage implements OnInit {
         this.authGuard.userToken = sessionStorage.getItem("token")
 
         console.log("User Authenticated Info",this.authGuard.userInfo);
+        this.authGuard.openRoutes = true;
         this.loaderController.dismiss();
         this.router.navigate(['/home']);
       }, error => {

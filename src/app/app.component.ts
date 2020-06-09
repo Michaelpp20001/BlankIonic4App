@@ -5,7 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AuthGuardService } from './services/auth-guard.service';
 import { HTTP } from '@ionic-native/http/ngx';
-import { Router } from '@angular/router';
+import { Router, ActivatedRouteSnapshot } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 
 @Component({
@@ -90,7 +90,14 @@ export class AppComponent {
     const alert = await this.alertController.create({
       header: 'Logged Out',
       message: 'You Are Now Logged Out of the Demo App',
-      buttons: ['Thanks']
+      buttons: [
+        {
+        text: 'Thanks',
+        handler: () => {
+          //handle sometthing after logout
+        }
+      }
+    ]
     });
     await alert.present();
   }
@@ -103,18 +110,17 @@ export class AppComponent {
           "current user", this.authGuard.userId,
           "current token", this.authGuard.userToken
           )
-
-        this.authGuard.clearUserInfo()
+        // this.authGuard.clearUserInfo();
+        // this.authGuard.resetAuth();
 
         console.log(
           "logout user post clear", this.authGuard.userInfo, 
           "current user", this.authGuard.userId, 
-          "current token", this.authGuard.userToken
+          "current token", this.authGuard.userToken,
+          "open routes", this.authGuard.openRoutes
           )
-
+          this.router.navigate(["login"]);
           this.presentAlert();
-
-        this.router.navigate(["login"])
     })
   }
 
