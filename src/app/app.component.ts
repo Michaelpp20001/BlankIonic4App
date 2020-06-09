@@ -72,7 +72,6 @@ export class AppComponent {
   }
 
   menuPlacement: string = "start";
-  userHasToken = this.authGuard.hasToken
 
   initializeApp() {
     this.platform.ready().then(() => {

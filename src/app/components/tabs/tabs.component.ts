@@ -12,8 +12,6 @@ import { AuthGuardService } from '../../services/auth-guard.service';
 })
 export class TabsComponent implements OnInit {
 
-  @Input() hasToken: boolean;
-
     routes: Routes = [
       {
         path: 'ionic-speaking',
@@ -34,7 +32,6 @@ export class TabsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log(this.hasToken)
   }
 
   

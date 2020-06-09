@@ -18,7 +18,6 @@ export class AuthGuardService implements CanActivate {
   userInfo: any
   userId: any
   userToken: any
-  hasToken: boolean = false
 
   authInfo = {
     firstName: "",
@@ -73,7 +72,6 @@ export class AuthGuardService implements CanActivate {
     delete this.authInfo.firstName
     delete this.authInfo.lastName
     delete this.authInfo.password
-    this.hasToken = false
   }
 
   clearUserInfo() {
