@@ -89,12 +89,12 @@ export class AppComponent {
   async presentAlert() {
     const alert = await this.alertController.create({
       header: 'Logged Out',
-      message: 'You Are Now Logged Out of the Demo App',
+      message: 'You are now logged out of the my demo app',
       buttons: [
         {
-        text: 'Thanks',
+        text: 'Ok',
         handler: () => {
-          //handle sometthing after logout
+          //handle something after logout if needed
         }
       }
     ]
@@ -104,22 +104,10 @@ export class AppComponent {
 
   onLogout(token) {
     this.authGuard.logout(token).subscribe( (res: any) => {
-
-        console.log(
-          "logout user pre clear", this.authGuard.userInfo,
-          "current user", this.authGuard.userId,
-          "current token", this.authGuard.userToken
-          )
         this.authGuard.clearUserInfo();
         this.authGuard.resetAuth();
-
-        console.log(
-          "logout user post clear", this.authGuard.userInfo, 
-          "current user", this.authGuard.userId, 
-          "current token", this.authGuard.userToken
-          )
-          this.router.navigate(["/login"]);
-          this.presentAlert();
+        this.router.navigate(["/login"]);
+        this.presentAlert();
     })
   }
 
