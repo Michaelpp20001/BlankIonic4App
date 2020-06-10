@@ -41,6 +41,10 @@ img {
     height: auto;
 }
 
+ion-card {
+    --background: rgba(255,255,255,0.5);
+}
+
 ion-content{
     --background: url('../../assets/abstract-white-triangle-shapes-background_1035-17544.jpg') no-repeat center center / cover;
 }
