@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { Storage } from '@ionic/storage';
-import { AlertController } from '@ionic/angular';
+import { AlertController, Platform } from '@ionic/angular';
 
 class Photo {
   data: any;
@@ -17,7 +17,8 @@ export class PhotoServiceService {
   constructor(
     public camera: Camera, 
     public storage: Storage,
-    public alertController: AlertController
+    public alertController: AlertController,
+    public platform: Platform,
     ) { }
 
   description: any;
@@ -108,20 +109,20 @@ export class PhotoServiceService {
     }
 
     takePicture() {
-      const options: CameraOptions = {
-        quality: 100,
-        destinationType: this.camera.DestinationType.DATA_URL,
-        encodingType: this.camera.EncodingType.JPEG,
-        mediaType: this.camera.MediaType.PICTURE,
-        correctOrientation: true,
-      };
-  
-      this.camera.getPicture(options).then((imageData) => {
-        this.presentAlertConfirm(imageData);
-        this.set();
-      }, (err) => {
-        console.log("Camera issue:" + err);
-      });
+        const options: CameraOptions = {
+          quality: 100,
+          destinationType: this.camera.DestinationType.DATA_URL,
+          encodingType: this.camera.EncodingType.JPEG,
+          mediaType: this.camera.MediaType.PICTURE,
+          correctOrientation: true,
+        };
+
+        this.camera.getPicture(options).then((imageData) => {
+          this.presentAlertConfirm(imageData);
+          this.set();
+        }, (err) => {
+          console.log("Camera issue:" + err);
+        });
     }
 
     //resets storage key and value of photos/saves photos
